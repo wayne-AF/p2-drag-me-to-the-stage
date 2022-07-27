@@ -11,22 +11,20 @@
     <header>
         <h1 id="logo">Drag me to<br>the stage!</h1>
     </header>
-    <section>
-        <div id="image">
-        </div>
-        <div id="text">
-        </div>
-    </section>
-    <section>
-        <form id="loginform" method="POST" action="/login/">
-            <div class="dragname">
-              <label for="entered-name"><h2>Please choose your drag name:</h2></label>
-              <input type="text" id="entered-name" name="entered-name">
-            </div>
-            <button class="button" id="button" type="submit">Submit</button>
-            
-          </form>
-    </section>
+    
+    <div id="container">
+        <div id="image"></div>
+        <div id="text-area-a">
+        <label for="name-input"><h2>Please choose your drag name:</h2></label>
+        <input id="name-input" type="text">
+          <br>
+        <button class="button" id="button-a" type="submit">Submit</button>
+      </div>
+      <div id="text-area-b">
+        
+       <button id="button-b"></button>
+      </div>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>

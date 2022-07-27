@@ -1,16 +1,16 @@
 
 let image = document.getElementById("image");
 let text = document.getElementById("text");
+let userDragName;
+
+
+let form = document.getElementById('loginform');
+form.addEventListener('submit', handleSubmit);
 
 /**
 * Converts the entered text into title case
 * and assigns it to a variable
 */
-let form = document.getElementById('loginform');
-form.addEventListener('submit', handleSubmit);
-
-let userDragName;
-
 function handleSubmit(event) {
   event.preventDefault();
   //

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Erica+One&family=Fascinate&family=Kenia&family=Oi&family=Permanent+Marker&family=Raleway:wght@200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Erica+One&family=Fascinate&family=Kenia&family=Oi&family=Permanent+Marker&family=Raleway:wght@200;300;400;500&family=Square+Peg&display=swap");
 
 * {
     margin: 0;
@@ -7,48 +7,93 @@
 }
 
 html {
-    height:100%;
-  }
-  
-  body {
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: linear-gradient(0deg, rgba(106,203,166,1) 0%, rgba(109,205,216,1) 100%);
-    background-repeat: no-repeat;
-    max-width: 1800px;
-  }
+  height: 100%;
+}
 
-  #logo {
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
-    font-family: 'Fascinate', cursive;
-    line-height: 6rem;
-    font-size: 8rem;;
-    color: #f596f6;
-    text-shadow: -2px 4px 8px #6c56a4, 1px 1px 1px #6c56a4, 1px -1px 0 #6c56a4, -1px -1px 0 #6c56a4, 5px 8px #6c56a4;
-  }
+body {
+  font-family: 'Raleway', sans-serif;
+/*   color: #5b71b0; */
+  font-size: 1.5rem;
+  color: #6c56a4;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(0deg, rgba(106,203,166,1) 0%, rgba(109,205,216,1) 100%);
+}
 
+#container {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  margin-top: 2em;
+  border-radius: 5px;
+/*   background-color: rgba(252,255,161, 0.3); */
+/*   background-color: linear-gradient(0deg, rgba(106,203,166,1) 0%, rgba(109,205,216,1) 100%); */
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+/*   border: 3px solid #6c56a4; */
+}
 
-  #login-form {
-    padding: 2em;
-  }
+/* section {
+  text-align: center;
+}
+ */
+#logo {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  font-family: 'Fascinate', cursive;
+  line-height: 6rem;
+  font-size: 8rem;;
+  color: #f596f6;
+  text-shadow: -2px 4px 8px #6c56a4, 1px 1px 1px #6c56a4, 1px -1px 0 #6c56a4, -1px -1px 0 #6c56a4, 5px 8px #6c56a4;
+}
+
+p {
+  color: #6c56a4;
+  font-size: 1.75rem;
+/*   letter-spacing: 0.75em; */
+  margin: 1em;
   
-  #dragname {
-    margin-top: 2em;
-    border: 3px solid;
-    color:  #5b71b0;
-    border-radius: 5px;
-  }
-  
-  button {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.5rem;
-    color: #5b71b0;
-    background-color: #f993f5;
-    border-radius: 5px;
-    padding: 0.5em;
-    border: 3px solid;
-    margin: 0.5em;
-  }
+}
+
+h2 {
+/*   font-family: 'Permanent Marker', cursive; */
+  color: #5b71b0;
+  font-size: 2.5rem;
+} */ */ */
+
+/* #player-image {
+  width: 300px;
+  height:500px;
+  background-color: gold;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10em;
+} */
+
+#login-form {
+  padding: 2em;
+}
+
+#name-input {
+  margin-top: 1em;
+  height: 2rem;
+  width: 15rem;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.25em;
+  border: 3px solid;
+  color:  #5b71b0;
+  border-radius: 5px;
+}
+
+button {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  color: #5b71b0;
+  background-color: #f993f5;
+  border-radius: 5px;
+  padding: 0.5em;
+  border: 3px solid;
+  margin: 0.5em;
+}
