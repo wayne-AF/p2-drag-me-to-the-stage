@@ -51,8 +51,33 @@ document.getElementById('button-b').addEventListener('click', () => {
     }
     i++
     if (dragArray.length >= 5) {
-        i = 0
+        i = 0;
     }
   console.log(dragArray)
   console.log(playerScore)
 });
+
+/** This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
+ * (the min and max scores the player can receive) and compares it to the player's final score.
+ * If the player's score is equal or higher, the player wins and the corresponding message is shown. 
+ */
+let rivalScore = 0;
+document.getElementById('button-c').addEventListener('click', finalResult);
+function finalResult() {
+  rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
+
+  if (rivalScore <= playerScore) {
+    textAreaB.innerHTML = `
+    Congratulations, ${userDragName}! 
+    You slayed the lip sync and the crowd has voted you the winner!
+    After all that, you get to host the show and let your star shine bright!
+    `
+  } else {
+    textAreaB.innerHTML = `
+    Sorry, ${userDragName}. 
+    The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
+    Better luck next time!
+    `
+  }
+  console.log(rivalScore);
+}  
