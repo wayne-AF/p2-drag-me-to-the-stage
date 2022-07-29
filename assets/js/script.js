@@ -2,6 +2,7 @@ let image = document.getElementById('image');
 let textAreaA = document.getElementById('text-area-a');
 let textAreaB = document.getElementById('text-area-b');
 let userDragName;
+let playerScore = 0;
 
 
 /** Attach event listener to submit button */
@@ -25,13 +26,13 @@ function handleSubmit(event) {
   
 }
 
-/** The items the player receives in each scenario get pushed into this */
+/** The items the player receives in each scenario get pushed into this array */
  let dragArray = [];
 
 /** This array contains the entire range of possible items the player can receive, three possible items per scenario */
 let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad padding', 'ok padding', 'great padding'],['bad outfit', 'ok outfit', 'great outfit'],['bad make up', 'ok make up', 'great make up']];
 
-/** This iterates through the entireOutfitArray, one string per button click, randomly choose an item,
+/** This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
  * pushes that item into the dragArray, and displays a message to the player saying what they have received */
 var i = 0;
 document.getElementById('button-b').addEventListener('click', () => {
@@ -39,15 +40,19 @@ document.getElementById('button-b').addEventListener('click', () => {
     
     dragArray.push(item);
     if (item.includes('great')) {
-      textAreaB.innerHTML = `Well done, sis! You got the ${item}!`
+      textAreaB.innerHTML = `Well done, sis! You got the ${item}!`;
+      playerScore += 3;
     } else if (item.includes('ok')) {
-      textAreaB.innerHTML = `Not too shabby, mama! You got the ${item}.`
+      textAreaB.innerHTML = `Not too shabby, mama! You got the ${item}.`;
+      playerScore += 2;
     } else {
-      textAreaB.innerHTML = `Yikes! Sorry girl, you got the ${item}.`
+      textAreaB.innerHTML = `Yikes! Sorry girl, you got the ${item}...`;
+      playerScore += 1;
     }
     i++
     if (dragArray.length >= 5) {
         i = 0
     }
   console.log(dragArray)
+  console.log(playerScore)
 });
