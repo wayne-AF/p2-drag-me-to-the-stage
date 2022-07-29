@@ -25,10 +25,29 @@ function handleSubmit(event) {
   
 }
 
-/** The items the player receives in each scenario
- * get pushed into this */
+/** The items the player receives in each scenario get pushed into this */
  let dragArray = [];
 
-/** This array contains the entire range of possible items
- * the player can receive, three possible items per scenario */
+/** This array contains the entire range of possible items the player can receive, three possible items per scenario */
 let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad padding', 'ok padding', 'great padding'],['bad outfit', 'ok outfit', 'great outfit'],['bad make up', 'ok make up', 'great make up']];
+
+/** This iterates through the entireOutfitArray, one string per button click, randomly choose an item,
+ * pushes that item into the dragArray, and displays a message to the player saying what they have received */
+var i = 0;
+document.getElementById('button-b').addEventListener('click', () => {
+    let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
+    
+    dragArray.push(item);
+    if (item.includes('great')) {
+      textAreaB.innerHTML = `Well done, sis! You got the ${item}!`
+    } else if (item.includes('ok')) {
+      textAreaB.innerHTML = `Not too shabby, mama! You got the ${item}.`
+    } else {
+      textAreaB.innerHTML = `Yikes! Sorry girl, you got the ${item}.`
+    }
+    i++
+    if (dragArray.length >= 5) {
+        i = 0
+    }
+  console.log(dragArray)
+});
