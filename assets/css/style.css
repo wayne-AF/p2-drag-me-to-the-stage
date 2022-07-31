@@ -40,7 +40,7 @@ body {
  */
 #logo {
   margin-top: 0.25em;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.75em;
   font-family: 'Fascinate', cursive;
   line-height: 6rem;
   font-size: 8rem;;
@@ -87,10 +87,21 @@ h2 {
   border-radius: 5px;
 }
 
+#text-and-button-container {
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.75em;
+}
+
 #area-a, #area-b {
   border: 3px solid #5b71b0;
   border-radius: 5px;
+  margin-top: 0.5em;
+  padding: 1em;
 }
+
+
 
 button {
   font-family: 'Raleway', sans-serif;
