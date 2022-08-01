@@ -28,16 +28,14 @@ function advanceScenario() {
   
 }
 
-
-let scene1 = {title: "first-title", text: "first-text", button: "first-button"}
-let scene2 = {title: "second-title", text: "second-text", button: "second-button"}
-let scene3 = {title: "third-title", text: "third-text", button: "third-button"}
-let scene4 = {title: "fourth-title", text: "fourth-text", button: "fourth-button"}
-let scene5 = {title: "fifth-title", text: "fifth-text", button: "fifth-button"}
-let scenarios = [scene1, scene2, scene3, scene4, scene5];
-
-
-
+let allScenarios = [
+  {title:"first-title", text:"first-text", button:"first-button"},
+  {title:"second-title", text:"second-text", button:"second-button"},
+  {title:"third-title", text:"hello, I am the third-text", button:"third-button"},
+  {title:"fourth-scenario", text:"fourth-text", button:"fourth-button"},
+  {title:"fifth-scenario", text:"fifth-text", button:"fifth-button"}
+]
+ 
 /** Scenario A and B hold the content to fill text areas A and B */
 let scenarioA = {
   currentScene: "stage",
