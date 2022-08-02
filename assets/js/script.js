@@ -4,8 +4,10 @@ let textAreaB = document.getElementById('text-area-b');
 let buttonA = document.getElementById('button-a');
 let buttonB = document.getElementById('button-b');
 let userDragName;
+
  /** The player's score, not visible to the player. */
  let playerScore = 0;
+
 /** The items the player receives in each scenario get pushed into this array. */
 let dragArray = [];
 
@@ -36,29 +38,6 @@ let allScenarios = [
   {title:"fifth-scenario", text:"fifth-text", button:"fifth-button"}
 ]
  
-/** Scenario A and B hold the content to fill text areas A and B */
-let scenarioA = {
-  currentScene: "stage",
-  stage: {
-    title: "IT'S GONNA BE A LONG NIGHT",
-    textA: "You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention an appropriate amount of delusion. You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!",
-    buttonAContent: "Got it!"
-  },
-  stage: {
-    title: "I NEED SOME HAIR",
-    textA: "Your drag mother has called in a favour from her drag sis, MizMosa. You can have whatever you want from Mabussy's apartment while she's away on tour. One of her drag daughters lets you into her apartment but you find the place has been picked clean. Turns out Fish Lips is friends with the daughter and she's beaten you to the punch! You desperately search the apartment to see if she missed anything.",
-    buttonAContent: "Check under the bed"
-  },
-  stage: {
-    title: "I NEED SOME SHOES",
-    textA: "You pass by a charity store with a donations bin outside. You pray that no one is around to record you and then you go dumpster diving. Amongst all the old clothes, you find an entire bag of shoes.",
-    buttonAContent: "Check for your size"
-  }
-}
-
-
-
-
 /** This array contains the entire range of possible items the player can receive, three possible items per scenario. */
 let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad padding', 'ok padding', 'great padding'],['bad outfit', 'ok outfit', 'great outfit'],['bad make up', 'ok make up', 'great make up']];
 
@@ -66,7 +45,7 @@ let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok sh
  * pushes that item into the dragArray, and displays a message to the player saying what they have received.
  * It also adds to the player score, depending on which item they have received. */
 var i = 0;
-// document.getElementById('button-b').addEventListener('click', getItem);    
+document.getElementById('button-c').addEventListener('click', getItem);    
 function getItem() {  
   let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
     
@@ -96,7 +75,7 @@ function getItem() {
  * If the player's score is equal or higher, the player wins and the corresponding message is shown. 
  */
 let rivalScore = 0;
-document.getElementById('button-c').addEventListener('click', finalResult);
+document.getElementById('button-d').addEventListener('click', finalResult);
 function finalResult() {
   rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
 
@@ -148,10 +127,15 @@ function rivalIntro(event) {
  * - show the button to advance the scenario (button to call function getItem)
  */
  function nextScenario(event) {
-  for (let i = 0; i < scenarios.length; i++) {
-
-  }
-  
-  
-
+  for (let i = 0; i < allScenarios.length; i++) {
+  textAreaA.innerHTML = allScenarios[i];
+  let scene = allScenarios[i].(allScenarios[i].title[i]);
+     
+      textAreaA.innerHTML = `
+      <h2>${allScenarios[i].title}</h2>
+      <p>${allScenarios[i].text}</p>
+      <button>${allScenarios[i].button}</button>
+    `
+       
+}
 }
