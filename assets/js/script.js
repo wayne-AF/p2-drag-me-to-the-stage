@@ -11,8 +11,6 @@ let userDragName;
 /** The items the player receives in each scenario get pushed into this array. */
 let dragArray = [];
 
-
-
 /** Attach event listener to submit button. */
 document.getElementById('button-a').addEventListener('click', handleSubmit);
 // document.getElementById('button-a').addEventListener('click', function() {
@@ -25,18 +23,8 @@ document.getElementById('button-a').addEventListener('click', handleSubmit);
  * - display the outcome in textB (function chooseItem)
  * - show the button to the next scenario (button to call function nextScenario)
  */
-function advanceScenario() {
-  
-  
+function advanceScenario() { 
 }
-
-let allScenarios = [
-  {title:"first-title", text:"first-text", button:"first-button"},
-  {title:"second-title", text:"second-text", button:"second-button"},
-  {title:"third-title", text:"hello, I am the third-text", button:"third-button"},
-  {title:"fourth-scenario", text:"fourth-text", button:"fourth-button"},
-  {title:"fifth-scenario", text:"fifth-text", button:"fifth-button"}
-]
  
 /** This array contains the entire range of possible items the player can receive, three possible items per scenario. */
 let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad padding', 'ok padding', 'great padding'],['bad outfit', 'ok outfit', 'great outfit'],['bad make up', 'ok make up', 'great make up']];
@@ -67,8 +55,6 @@ function getItem() {
   console.log(dragArray)
   console.log(playerScore)
 };
-
-
 
 /** This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
  * (the min and max scores the player can receive) and compares it to the player's final score.
@@ -106,6 +92,7 @@ function handleSubmit(event) {
     }
   userDragName = nameArray.join(' '); 
   console.log(userDragName);
+
   textAreaA.innerHTML = `
   <h2>It's gonna be a long night</h2>
   <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention and a healthy dose of delusion. You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!</p>
@@ -126,16 +113,24 @@ function rivalIntro(event) {
  * - display text in textA by looping through ScenarioA content
  * - show the button to advance the scenario (button to call function getItem)
  */
- function nextScenario(event) {
-  for (let i = 0; i < allScenarios.length; i++) {
-  textAreaA.innerHTML = allScenarios[i];
-  let scene = allScenarios[i].(allScenarios[i].title[i]);
+//  function nextScenario(event) {
+//   for (let i = 0; i < allScenarios.length; i++) {
+//   textAreaA.innerHTML = allScenarios[i];
+//   let scene = allScenarios[i].(allScenarios[i].title[i]);
      
-      textAreaA.innerHTML = `
-      <h2>${allScenarios[i].title}</h2>
-      <p>${allScenarios[i].text}</p>
-      <button>${allScenarios[i].button}</button>
-    `
+//       textAreaA.innerHTML = `
+//       <h2>${allScenarios[i].title}</h2>
+//       <p>${allScenarios[i].text}</p>
+//       <button>${allScenarios[i].button}</button>
+//     `
        
-}
-}
+// }
+// }
+
+let allScenarios = [
+  {title:"first-title", text:"first-text", button:"first-button"},
+  {title:"second-title", text:"second-text", button:"second-button"},
+  {title:"third-title", text:"hello, I am the third-text", button:"third-button"},
+  {title:"fourth-scenario", text:"fourth-text", button:"fourth-button"},
+  {title:"fifth-scenario", text:"fifth-text", button:"fifth-button"}
+];
