@@ -23,8 +23,7 @@ document.getElementById('button-a').addEventListener('click', handleSubmit);
  * - display the outcome in textB (function chooseItem)
  * - show the button to the next scenario (button to call function nextScenario)
  */
-function advanceScenario() { 
-}
+
  
 /** This array contains the entire range of possible items the player can receive, three possible items per scenario. */
 let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad padding', 'ok padding', 'great padding'],['bad outfit', 'ok outfit', 'great outfit'],['bad make up', 'ok make up', 'great make up']];
@@ -33,8 +32,8 @@ let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok sh
  * pushes that item into the dragArray, and displays a message to the player saying what they have received.
  * It also adds to the player score, depending on which item they have received. */
 var i = 0;
-document.getElementById('button-c').addEventListener('click', getItem);    
-function getItem() {  
+// document.getElementById('button-c').addEventListener('click', getItem);    
+function getItem(event) {  
   let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
     
     dragArray.push(item);
@@ -61,7 +60,7 @@ function getItem() {
  * If the player's score is equal or higher, the player wins and the corresponding message is shown. 
  */
 let rivalScore = 0;
-document.getElementById('button-d').addEventListener('click', finalResult);
+// document.getElementById('button-d').addEventListener('click', finalResult);
 function finalResult() {
   rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
 
@@ -81,10 +80,23 @@ function finalResult() {
   console.log(rivalScore);
 }  
 
+/* help to fix input error value retrieved from https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null */
+let input = document.getElementById("btn");
+let inputVal = "";
+if (input) {
+    inputVal = input.value;
+}
+
 /** Convert text entered into title case and displays the welcome text. */
 function handleSubmit(event) {
   event.preventDefault();
-  let nameInput = document.getElementById('name-input').value;
+
+  let input = document.getElementById('name-input');
+  let nameInput = "";
+  if (input) {
+    nameInput = input.value
+  }
+  
   let lowerCaseName = nameInput.toLowerCase();
   let nameArray = lowerCaseName.split(' ');
     for (let i = 0; i < nameArray.length; i++) {
@@ -105,22 +117,79 @@ function rivalIntro(event) {
   textAreaB.innerHTML = `
   <p>But watch out: your rival, Fish Lips, is also in town and she's out to snatch your gig! Try to put together the best look possible so that you can own the stage like the diva you are!</p>
   `
-  buttonB.addEventListener('click', nextScenario);
+  let playButton = document.createElement('button')
+  playButton.innerHTML = "Let's play!"
+  document.getElementById('scenario-container-b').appendChild(playButton)
+  playButton.addEventListener('click', showScenario);
 }
+
+/** Contains content for scenarios */
+let allScenarios = [
+  {title:"I need a wig!", 
+   text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
+   button:"Look under the bed"},
+  {title:"Dumpster Queen", 
+   text:"Wig in hand, you pass by a charity store with a donations bin outside. Checking to make sure no one's around to record you, you dive right in. You must be blessed and highly favoured becase you find an entire bag full of shoes! But will there by any in your size?", 
+   button:"Search the bag"},
+  {title:"I need an outfit!", 
+   text:"You put out an SOS on social media for anyone willing to lend you an outfit. You don't have the best reputation for returning girls' things back in good condition but surely SOMEONE will lend you SOMETHING that isn't pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he's not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...", 
+   button:"Examine the stolen clothes"},
+  {title:"I need padding!", 
+   text:"You're gonna need padding to fill out this outfit! You come across a suspicious-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
+   button:"Slice and dice the couch cushions"},
+  {title:"I need make up!", 
+   text:"There's not much time left before the show starts and you're getting desperate. The only store you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You quickly make the exchange and then you're on your way to the club!", 
+   button:"Examine the stolen make up"}
+]
 
 /** This function must:
  * - advance to the next scenario
  * - display text in textA by looping through ScenarioA content
  * - show the button to advance the scenario (button to call function getItem)
  */
-  
 
- let allScenarios = [
-  {title:"I need a wig!", 
-   text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
-   button:"Look under the bed"},
-  {title:"Dumpster Queen", text:"Wig in hand, you pass by a charity store with a donations bin outside. Checking to make sure no one's around to record you, you dive right in. You must be blessed and highly favoured becase you find an entire bag full of shoes! But will there by any in your size?", button:"Search the bag"},
-  {title:"I need an outfit!", text:"You put out an SOS on social media for anyone willing to lend you an outfit. You don't have the best reputation for returning girls' things back in good condition but surely SOMEONE will lend you SOMETHING that isn't pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he's not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...", button:"Examine the stolen clothes"},
-  {title:"I need padding!", text:"You're gonna need padding to fill out this outfit! You come across a suspicious-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", button:"Slice and dice the couch cushions"},
-  {title:"I need make up!", text:"There's not much time left before the show starts and you're getting desperate. The only store you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You quickly make the exchange and then you're on your way to the club!", button:"Examine the stolen make up"}
-]
+// let nextScenarioIndex = 0;
+
+function showScenario(index) {
+  let nextScenarioIndex = 0;
+  
+  let scenarioContainerA = document.getElementById('scenario-container-a');
+  let scenarioContainerB = document.getElementById('scenario-container-b');
+  scenarioContainerA.innerHTML = ""
+
+  if (nextScenarioIndex >= allScenarios.length) {
+    scenarioContainerA.innerHTML = "Your outfit is complete!"
+  }
+
+  let scenario = allScenarios[index]
+
+  let scenarioTitle = document.createElement('h2')
+  scenarioTitle.innerText = scenario.title
+  scenarioContainerA.appendChild(scenarioTitle)
+
+  let scenarioText = document.createElement('p')
+  scenarioText.innerText = scenario.text
+  scenarioContainerA.appendChild(scenarioText)
+
+  let getItemButton = document.createElement('button')
+  getItemButton.innerText = scenario.button
+  scenarioContainerA.appendChild(getItemButton)
+  getItemButton.addEventListener('click', () => {
+
+    getItem();
+
+    getItemButton.style.display = "none"
+
+    let nextScenarioButton = document.createElement('button')
+    nextScenarioButton.innerText = "Next!"
+    scenarioContainerB.appendChild(nextScenarioButton)
+    nextScenarioButton.addEventListener('click', () => {
+      scenarioContainerB.innerHTML = ""
+      nextScenarioIndex += 1
+      showScenario(nextScenarioIndex)
+    })
+  })
+}
+  
+// showScenario(0);
+
