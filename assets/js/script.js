@@ -113,19 +113,19 @@ function rivalIntro(event) {
  * - display text in textA by looping through ScenarioA content
  * - show the button to advance the scenario (button to call function getItem)
  */
-//  function nextScenario(event) {
-//   for (let i = 0; i < allScenarios.length; i++) {
-//   textAreaA.innerHTML = allScenarios[i];
-//   let scene = allScenarios[i].(allScenarios[i].title[i]);
+ function nextScenario(event) {
+  for (let i = 0; i < allScenarios.length; i++) {
+  textAreaA.innerHTML = allScenarios[i];
+  let scene = allScenarios[i].(allScenarios[i].title[i]);
      
-//       textAreaA.innerHTML = `
-//       <h2>${allScenarios[i].title}</h2>
-//       <p>${allScenarios[i].text}</p>
-//       <button>${allScenarios[i].button}</button>
-//     `
+      textAreaA.innerHTML = `
+      <h2>${allScenarios[i].title}</h2>
+      <p>${allScenarios[i].text}</p>
+      <button>${allScenarios[i].button}</button>
+    `
        
-// }
-// }
+}
+}
 
 let allScenarios = [
   {title:"first-title", text:"first-text", button:"first-button"},
