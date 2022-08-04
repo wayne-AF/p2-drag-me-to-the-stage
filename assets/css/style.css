@@ -92,18 +92,19 @@ h2 {
 }
 
 #text-and-button-container {
-  max-width: 40%;
+  max-width: 32em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0.75em;
+  /* margin-top: 0.75em; */
+  width: 90%;
 }
 
 #area-a, #area-b {
-  border: 3px solid #5b71b0;
+  border: 1px solid #5b71b0;
   border-radius: 5px;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  padding: 0.25em;
+  /* padding: 0.25em; */
 }
 
 

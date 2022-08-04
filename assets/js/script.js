@@ -12,7 +12,7 @@ let userDragName;
 let dragArray = [];
 
 /** Attach event listener to submit button. */
-document.getElementById('button-a').addEventListener('click', handleSubmit);
+buttonA.addEventListener('click', handleSubmit);
 // document.getElementById('button-a').addEventListener('click', function() {
 //   ;
 // });
@@ -105,32 +105,45 @@ function rivalIntro(event) {
   textAreaB.innerHTML = `
   <p>But watch out: your rival, Fish Lips, is also in town and she's out to snatch your gig! Try to put together the best look possible so that you can own the stage like the diva you are!</p>
   `
-  buttonB.addEventListener('click', nextScenario);
+  let playButton = document.createElement('button')
+  playButton.innerHTML = "Let's play!"
+  document.getElementById('area-b').appendChild(playButton)
+  playButton.addEventListener('click', showScenario);
 }
 
 /** This function must:
  * - advance to the next scenario
- * - display text in textA by looping through ScenarioA content
+ * - display text in textA by looping through allScenarios content
  * - show the button to advance the scenario (button to call function getItem)
  */
- function nextScenario(event) {
-  for (let i = 0; i < allScenarios.length; i++) {
-  textAreaA.innerHTML = allScenarios[i];
-  let scene = allScenarios[i].(allScenarios[i].title[i]);
+//  function nextScenario(event) {
+//   for (let i = 0; i < allScenarios.length; i++) {
+//   textAreaA.innerHTML = allScenarios[i];
+//   let scene = allScenarios[i].(allScenarios[i].title[i]);
      
-      textAreaA.innerHTML = `
-      <h2>${allScenarios[i].title}</h2>
-      <p>${allScenarios[i].text}</p>
-      <button>${allScenarios[i].button}</button>
-    `
+//       textAreaA.innerHTML = `
+//       <h2>${allScenarios[i].title}</h2>
+//       <p>${allScenarios[i].text}</p>
+//       <button>${allScenarios[i].button}</button>
+//     `
        
-}
-}
+// }
+// }
 
 let allScenarios = [
-  {title:"first-title", text:"first-text", button:"first-button"},
-  {title:"second-title", text:"second-text", button:"second-button"},
-  {title:"third-title", text:"hello, I am the third-text", button:"third-button"},
-  {title:"fourth-scenario", text:"fourth-text", button:"fourth-button"},
-  {title:"fifth-scenario", text:"fifth-text", button:"fifth-button"}
-];
+  {title:"I need a wig!", 
+   text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
+   button:"Look under the bed"},
+  {title:"Dumpster Queen", 
+   text:"Wig in hand, you pass by a charity store with a donations bin outside. Checking to make sure no one's around to record you, you dive right in. You must be blessed and highly favoured becase you find an entire bag full of shoes! But will there by any in your size?", 
+   button:"Search the bag"},
+  {title:"I need an outfit!", 
+   text:"You put out an SOS on social media for anyone willing to lend you an outfit. You don't have the best reputation for returning girls' things back in good condition but surely SOMEONE will lend you SOMETHING that isn't pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he's not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...", 
+   button:"Examine the stolen clothes"},
+  {title:"I need padding!", 
+   text:"You're gonna need padding to fill out this outfit! You come across a suspicious-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
+   button:"Slice and dice the couch cushions"},
+  {title:"I need make up!", 
+   text:"There's not much time left before the show starts and you're getting desperate. The only store you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You quickly make the exchange and then you're on your way to the club!", 
+   button:"Examine the stolen make up"}
+]
