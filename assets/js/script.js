@@ -3,6 +3,8 @@ let textAreaA = document.getElementById('text-area-a');
 let textAreaB = document.getElementById('text-area-b');
 let buttonA = document.getElementById('button-a');
 let buttonB = document.getElementById('button-b');
+const scenarioContainerA = document.getElementById('scenario-container-a')
+const scenarioContainerB = document.getElementById('scenario-container-b')
 let userDragName;
 
  /** The player's score, not visible to the player. */
@@ -14,19 +16,11 @@ let dragArray = [];
 /** Attach event listener to submit button. */
 document.getElementById('button-a').addEventListener('click', handleSubmit);
 // document.getElementById('button-a').addEventListener('click', function() {
-//   ;
-// });
 
-/** This function must:
- * - calculate the item the player receives
- * - add it to dragArray
- * - display the outcome in textB (function chooseItem)
- * - show the button to the next scenario (button to call function nextScenario)
- */
 
  
 /** This array contains the entire range of possible items the player can receive, three possible items per scenario. */
-let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad padding', 'ok padding', 'great padding'],['bad outfit', 'ok outfit', 'great outfit'],['bad make up', 'ok make up', 'great make up']];
+let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad outfit', 'ok outfit', 'great outfit'],['bad padding', 'ok padding', 'great padding'],['bad make up', 'ok make up', 'great make up']];
 
 /** This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
  * pushes that item into the dragArray, and displays a message to the player saying what they have received.
@@ -38,19 +32,27 @@ function getItem(event) {
     
     dragArray.push(item);
     if (item.includes('great')) {
-      textAreaB.innerHTML = `Well done, mama! You got the ${item}!`;
+      scenarioContainerB.innerHTML = `Well done, mama! You got the ${item}!`;
       playerScore += 3;
     } else if (item.includes('ok')) {
-      textAreaB.innerHTML = `Not too shabby, sis! You got the ${item}.`;
+      scenarioContainerB.innerHTML = `Not too shabby, sis! You got the ${item}.`;
       playerScore += 2;
     } else {
-      textAreaB.innerHTML = `Yikes! Sorry girl, you got the ${item}...`;
+      scenarioContainerB.innerHTML = `Yikes! Sorry girl, you got the ${item}...`;
       playerScore += 1;
     }
     i++
     if (dragArray.length >= 5) {
         i = 0;
     }
+  let nextScenarioButton = document.createElement('button')
+    nextScenarioButton.innerText = "Next!"
+    scenarioContainerB.appendChild(nextScenarioButton)
+    nextScenarioButton.addEventListener('click', () => {
+      scenarioContainerB.innerHTML = ""
+      nextScenarioIndex += 1
+      showScenario(nextScenarioIndex)
+    })
   console.log(dragArray)
   console.log(playerScore)
 };
@@ -65,28 +67,22 @@ function finalResult() {
   rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
 
   if (rivalScore <= playerScore) {
-    textAreaB.innerHTML = `
-    Congratulations, ${userDragName}! 
+    ScenarioContainerB.innerHTML = `
+    <p>Congratulations, ${userDragName}! 
     You slayed the lip sync and the crowd has voted you the winner!
     After all that, you get to host the show! Time to let your star shine bright!
-    `
+    </p>`
   } else {
-    textAreaB.innerHTML = `
-    Sorry, ${userDragName}. 
+    scenarioContainerB.innerHTML = `
+    <p>Sorry, ${userDragName}. 
     The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
     Better luck next time!
-    `
+    </p>`
   }
   console.log(rivalScore);
 }  
 
 /* help to fix input error value retrieved from https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null */
-let input = document.getElementById("btn");
-let inputVal = "";
-if (input) {
-    inputVal = input.value;
-}
-
 /** Convert text entered into title case and displays the welcome text. */
 function handleSubmit(event) {
   event.preventDefault();
@@ -119,8 +115,11 @@ function rivalIntro(event) {
   `
   let playButton = document.createElement('button')
   playButton.innerHTML = "Let's play!"
-  document.getElementById('scenario-container-b').appendChild(playButton)
+  scenarioContainerB.appendChild(playButton)
   playButton.addEventListener('click', showScenario);
+  playButton.addEventListener('click', () => {
+    scenarioContainerB.innerHTML = ""
+  })
 }
 
 /** Contains content for scenarios */
@@ -150,18 +149,25 @@ let allScenarios = [
 
 // let nextScenarioIndex = 0;
 
-function showScenario(index) {
-  let nextScenarioIndex = 0;
+let nextScenarioIndex = 0;
+function showScenario(event) {
+  // let nextScenarioIndex = 0;
   
-  let scenarioContainerA = document.getElementById('scenario-container-a');
-  let scenarioContainerB = document.getElementById('scenario-container-b');
+  // let scenarioContainerA = document.getElementById('scenario-container-a');
+  // let scenarioContainerB = document.getElementById('scenario-container-b');
   scenarioContainerA.innerHTML = ""
 
   if (nextScenarioIndex >= allScenarios.length) {
-    scenarioContainerA.innerHTML = "Your outfit is complete!"
+    scenarioContainerA.innerHTML = `
+    <h2>Your outfit is complete!</h2>
+    `
+    let finalOutfit = document.createElement('button')
+    finalOutfit.innerText = "Check me out"
+    scenarioContainerA.appendChild(finalOutfit)
+    // finalOutfit.addEventListener('click',)
   }
 
-  let scenario = allScenarios[index]
+  let scenario = allScenarios[i];
 
   let scenarioTitle = document.createElement('h2')
   scenarioTitle.innerText = scenario.title
@@ -180,15 +186,15 @@ function showScenario(index) {
 
     getItemButton.style.display = "none"
 
-    let nextScenarioButton = document.createElement('button')
-    nextScenarioButton.innerText = "Next!"
-    scenarioContainerB.appendChild(nextScenarioButton)
-    nextScenarioButton.addEventListener('click', () => {
-      scenarioContainerB.innerHTML = ""
-      nextScenarioIndex += 1
-      showScenario(nextScenarioIndex)
-    })
   })
+  // let nextScenarioButton = document.createElement('button')
+  //   nextScenarioButton.innerText = "Next!"
+  //   scenarioContainerB.appendChild(nextScenarioButton)
+  //   nextScenarioButton.addEventListener('click', () => {
+  //     scenarioContainerB.innerHTML = ""
+  //     nextScenarioIndex += 1
+  //     showScenario(nextScenarioIndex)
+  //   })
 }
   
 // showScenario(0);
