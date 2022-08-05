@@ -48,6 +48,7 @@ function getItem(event) {
   let nextScenarioButton = document.createElement('button')
     nextScenarioButton.innerText = "Next!"
     scenarioContainerB.appendChild(nextScenarioButton)
+    nextScenarioButton.style.display = "block"
     nextScenarioButton.addEventListener('click', () => {
       scenarioContainerB.innerHTML = ""
       nextScenarioIndex += 1
@@ -107,6 +108,9 @@ function handleSubmit(event) {
   `
   buttonA.innerHTML = `Sounds fun!`
   buttonA.addEventListener('click', rivalIntro);
+  buttonA.addEventListener('click', () => {
+    buttonA.style.display = "none"
+  })
 }
 
 function rivalIntro(event) {
@@ -137,7 +141,7 @@ let allScenarios = [
    text:"You're gonna need padding to fill out this outfit! You come across a suspicious-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
    button:"Slice and dice the couch cushions"},
   {title:"I need make up!", 
-   text:"There's not much time left before the show starts and you're getting desperate. The only store you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You quickly make the exchange and then you're on your way to the club!", 
+   text:"There's not much time left before the show starts and you're getting desperate. The only store selling make up you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You supply liquor to the minors, get your shoplifted make up, and then you're in a cab on the way to the club!", 
    button:"Examine the stolen make up"}
 ]
 
@@ -159,10 +163,10 @@ function showScenario(event) {
 
   if (nextScenarioIndex >= allScenarios.length) {
     scenarioContainerA.innerHTML = `
-    <h2>Your outfit is complete!</h2>
+    <h2>You get changed in the cab (the driver was definitely watching so no tip for him!) and arrive at the club ready to meet your destiny</h2>
     `
     let finalOutfit = document.createElement('button')
-    finalOutfit.innerText = "Check me out"
+    finalOutfit.innerText = "Check yourself in the mirror"
     scenarioContainerA.appendChild(finalOutfit)
     // finalOutfit.addEventListener('click',)
   }

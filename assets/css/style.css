@@ -54,7 +54,8 @@ body {
 
 p {
   color: #6c56a4;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
 /*   letter-spacing: 0.75em; */
   margin: 1em;
   
@@ -97,6 +98,7 @@ h2 {
   margin-right: auto;
   /* margin-top: 0.75em; */
   width: 90%;
+  /* text-align: center; */
 }
 
 #area-a, #area-b {
@@ -117,5 +119,12 @@ button {
   border-radius: 5px;
   padding: 0.5em;
   border: 3px solid;
-  margin: 0.5em;
+  margin: 0.5em; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: #f3f967;
+  /* background-color: #ecf3fe; */
 }
