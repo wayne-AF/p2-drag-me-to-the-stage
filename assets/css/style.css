@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Erica+One&family=Fascinate&family=Kenia&family=Oi&family=Permanent+Marker&family=Raleway:wght@200;300;400;500&family=Square+Peg&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Original+Surfer&family=Rock+Salt&display=swap");
 
 * {
     margin: 0;
@@ -62,7 +63,7 @@ p {
 }
 
 h2 {
-/*   font-family: 'Permanent Marker', cursive; */
+  font-family: 'Rock Salt', cursive;
   color: #5b71b0;
   font-size: 2.5rem;
 } */ */ */
