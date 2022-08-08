@@ -5,8 +5,9 @@ let buttonA = document.getElementById('button-a');
 let buttonB = document.getElementById('button-b');
 let playerImageArea = document.getElementById('player-image');
 let villainImageArea = document.getElementById('villain-image');
-const scenarioContainerA = document.getElementById('scenario-container-a')
-const scenarioContainerB = document.getElementById('scenario-container-b')
+const scenarioContainerA = document.getElementById('scenario-container-a');
+const scenarioContainerB = document.getElementById('scenario-container-b');
+const imagesLocation = '/assets/images/';
 let userDragName;
 
  /** The player's score, not visible to the player. */
@@ -22,7 +23,7 @@ document.getElementById('button-a').addEventListener('click', handleSubmit);
 
  
 /** This array contains the entire range of possible items the player can receive, three possible items per scenario. */
-let entireOutfitArray = [['bad wig', 'ok wig', 'great wig'],['bad shoes', 'ok shoes', 'great shoes'],['bad outfit', 'ok outfit', 'great outfit'],['bad padding', 'ok padding', 'great padding'],['bad make up', 'ok make up', 'great make up']];
+let entireOutfitArray = [['great wig', 'ok wig', 'bad wig'],['great shoes', 'ok shoes', 'bad shoes'],['great outfit', 'ok outfit', 'bad outfit'],['great padding', 'ok padding', 'bad padding'],['great make up', 'ok make up', 'bad make up']];
 
 /** This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
  * pushes that item into the dragArray, and displays a message to the player saying what they have received.
@@ -176,10 +177,10 @@ function showScenario(event) {
     scenarioContainerA.innerHTML = `
     <p>You get changed in the cab (the driver was definitely watching so no tip for him) and arrive at the club ready to meet your destiny!</p>
     `
-    let finalOutfit = document.createElement('button')
-    finalOutfit.innerText = "Check yourself in the mirror backstage"
-    scenarioContainerA.appendChild(finalOutfit)
-    // finalOutfit.addEventListener('click',)
+    let finalOutfitButton = document.createElement('button')
+    finalOutfitButton.innerText = "Check yourself in the mirror backstage"
+    scenarioContainerA.appendChild(finalOutfitButton)
+    finalOutfitButton.addEventListener('click', showFinalOutfit)
   }
 
   let scenario = allScenarios[i];
@@ -205,10 +206,22 @@ function showScenario(event) {
 }
   
 /** This function determines which outfit the player has achieved and displays it */
-function showFinalOutfit() {
-  if (dragArray.includes("great wig", "great outfit", "great shoes")) {
-    let finalOutfit = document.createElement('img');
-    finalOutfit.src = '/assets/images/aaa-outfit.png';
-  }
+function showFinalOutfit(event) {
+  let imageName = getFinalImageName(dragArray[0].split(' ')[0], dragArray[1].split(' ')[0], dragArray[2].split(' ')[0])
 
+  let fullImageSource = imagesLocation + imageName;
+
+  let resultImage = document.createElement('img')
+  resultImage.src = fullImageSource
+
+  playerImageArea.appendChild(resultImage)
+}
+
+function getFinalImageName(wigType, shoesType, outfitType) {
+// The image combinations for the final outfit are named in the format 
+// wigType-shoesType-outfitType.jpg
+// e.g. great-great-great.jpg is the final image for a combination of 
+// a great wig, great shoes, and great outfit.
+  let imageName = `${wigType}-${shoesType}-${outfitType}.jpg`
+  return imageName
 }
