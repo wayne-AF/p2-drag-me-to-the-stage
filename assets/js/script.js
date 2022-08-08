@@ -1,4 +1,4 @@
-let image = document.getElementById('image');
+// let image = document.getElementById('image');
 let textAreaA = document.getElementById('text-area-a');
 let textAreaB = document.getElementById('text-area-b');
 let buttonA = document.getElementById('button-a');
@@ -11,90 +11,24 @@ const imagesLocation = '/assets/images/';
 let userDragName;
 let resultImage;
 
- /** The player's score, not visible to the player. */
+ // The player's score, not visible to the player, used to determine the final outcome.
  let playerScore = 0;
 
-/** The items the player receives in each scenario get pushed into this array. */
+// The items the player receives in each scenario get pushed into this array.
 let dragArray = [];
 
-/** Attach event listener to submit button. */
+// Attach event listener to submit button.
 document.getElementById('button-a').addEventListener('click', handleSubmit);
-// document.getElementById('button-a').addEventListener('click', function() {
 
+// This array contains the entire range of possible items the player can receive, three possible items per scenario.
+let entireOutfitArray = [
+  ['great wig', 'ok wig', 'bad wig'],
+  ['great shoes', 'ok shoes', 'bad shoes'],
+  ['great outfit', 'ok outfit', 'bad outfit'],
+  ['great padding', 'ok padding', 'bad padding'],
+  ['great make up', 'ok make up', 'bad make up']
+];
 
- 
-/** This array contains the entire range of possible items the player can receive, three possible items per scenario. */
-let entireOutfitArray = [['great wig', 'ok wig', 'bad wig'],['great shoes', 'ok shoes', 'bad shoes'],['great outfit', 'ok outfit', 'bad outfit'],['great padding', 'ok padding', 'bad padding'],['great make up', 'ok make up', 'bad make up']];
-
-/** This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
- * pushes that item into the dragArray, and displays a message to the player saying what they have received.
- * It also adds to the player score, depending on which item they have received. */
-var i = 0;
-// document.getElementById('button-c').addEventListener('click', getItem);    
-function getItem(event) {  
-  let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
-    
-    dragArray.push(item);
-    if (item.includes('great')) {
-      scenarioContainerB.innerHTML = `Well done, mama! You got the ${item}!`;
-      playerScore += 3;
-    } else if (item.includes('ok')) {
-      scenarioContainerB.innerHTML = `Not too shabby, sis! You got the ${item}.`;
-      playerScore += 2;
-    } else {
-      scenarioContainerB.innerHTML = `Yikes! Sorry girl, you got the ${item}...`;
-      playerScore += 1;
-    }
-    i++
-    // if (dragArray.length >= 5) {
-    //     i = 0;
-    // }
-  let nextScenarioButton = document.createElement('button')
-    nextScenarioButton.innerText = "Next!"
-    scenarioContainerB.appendChild(nextScenarioButton)
-    nextScenarioButton.style.display = "block"
-    nextScenarioButton.addEventListener('click', () => {
-      scenarioContainerB.innerHTML = ""
-      nextScenarioIndex += 1
-      showScenario(nextScenarioIndex)
-    })
-  console.log(dragArray)
-  console.log(playerScore)
-};
-
-// This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
-// (the min and max scores the player can receive) and compares it to the player's final score.
-// If the player's score is equal or higher, the player wins and the corresponding message is shown. 
-let rivalScore = 0;
-
-function finalResult(event) {
-  // scenarioContainerA.innerHTML = ""
-  // scenarioContainerB.innerHTML = ""
-  playerImageArea.removeChild(playerImageArea.firstElementChild);
-  villainImageArea.removeChild(villainImageArea.firstElementChild);
-  rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
-
-  if (rivalScore <= playerScore) {
-    scenarioContainerA.appendChild(resultImage)
-    scenarioContainerB.innerHTML = `
-    <p>Congratulations, ${userDragName}! 
-    You slayed the lip sync and the crowd has voted you the winner!
-    After all that, you get to host the show! Time to let your star shine bright!
-    </p>
-    `
-  } else {
-    scenarioContainerA.appendChild(fishLipsDrag)
-    scenarioContainerB.innerHTML = `
-    <p>Sorry, ${userDragName}. 
-    The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
-    Better luck next time!
-    </p>
-    `
-  }
-  console.log(rivalScore);
-}  
-
-// help to fix input error value retrieved from https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null
 // Convert text entered into title case and displays the welcome text.
 function handleSubmit(event) {
   event.preventDefault();
@@ -112,7 +46,7 @@ function handleSubmit(event) {
       nameArray[i] = nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1);
     }
   userDragName = nameArray.join(' '); 
-  console.log(userDragName);
+  
 
   let playerImageBoy = document.createElement('img');
   playerImageBoy.src = '/assets/images/player-image-boy.png';
@@ -120,7 +54,9 @@ function handleSubmit(event) {
   
   textAreaA.innerHTML = `
   <h2>It's gonna be a long night</h2>
-  <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention and a healthy dose of delusion. You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!</p>
+  <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention and a healthy dose of delusion. 
+  You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! 
+  With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!</p>
   `
 
   buttonA.innerHTML = `Sounds fun!`
@@ -147,11 +83,45 @@ function rivalIntro(event) {
     scenarioContainerB.innerHTML = "";
     playerImageArea.removeChild(playerImageArea.firstElementChild);
     villainImageArea.removeChild(villainImageArea.firstElementChild);
-    
   })
 }
 
-/** Contains content for scenarios */
+// This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
+// pushes that item into the dragArray, and displays a message to the player saying what they have received.
+// It also adds to the player score, depending on which item they have received.
+var i = 0;   
+function getItem(event) {  
+  let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
+    
+    dragArray.push(item);
+    if (item.includes('great')) {
+      scenarioContainerB.innerHTML = `Well done, mama! You got the ${item}!`;
+      playerScore += 3;
+    } else if (item.includes('ok')) {
+      scenarioContainerB.innerHTML = `Not too shabby, sis! You got the ${item}.`;
+      playerScore += 2;
+    } else {
+      scenarioContainerB.innerHTML = `Yikes! Sorry girl, you got the ${item}...`;
+      playerScore += 1;
+    }
+    i++
+    // if (dragArray.length >= 5) {
+    //     i = 0;
+    // }
+  let nextScenarioButton = document.createElement('button')
+  nextScenarioButton.innerText = "Next!"
+  scenarioContainerB.appendChild(nextScenarioButton)
+  nextScenarioButton.style.display = "block"
+  nextScenarioButton.addEventListener('click', () => {
+    scenarioContainerB.innerHTML = ""
+    nextScenarioIndex += 1
+    showScenario(nextScenarioIndex)
+  })
+  console.log(dragArray)
+  console.log(playerScore)
+};
+
+// Contains content for scenarios.
 let allScenarios = [
   {title:"I need a wig", 
    text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
@@ -172,15 +142,13 @@ let allScenarios = [
 
 let nextScenarioIndex = 0;
 function showScenario(event) {
-  // let nextScenarioIndex = 0;
   
-  // let scenarioContainerA = document.getElementById('scenario-container-a');
-  // let scenarioContainerB = document.getElementById('scenario-container-b');
   scenarioContainerA.innerHTML = ""
 
   if (nextScenarioIndex >= allScenarios.length) {
     scenarioContainerA.innerHTML = ""
     scenarioContainerA.innerHTML = `
+    <h2>The stage awaits</h2>
     <p>You get changed in the cab (the driver was definitely watching so no tip for him) and arrive at the club ready to meet your destiny!</p>
     `
     let finalOutfitButton = document.createElement('button')
@@ -199,11 +167,12 @@ function showScenario(event) {
       startShowButton.addEventListener('click', () => {
         startShowButton.style.display = "none"
         
-        const fishLipsDrag = document.createElement('img');
+        let fishLipsDrag = document.createElement('img');
         fishLipsDrag.src = '/assets/images/fish-lips-drag.png';
         villainImageArea.appendChild(fishLipsDrag);
         scenarioContainerB.innerHTML = `
-        <p>What the--? It looks like Fish Lips is here! And that witch has convinced the club manager to let her lip sync against you for the hosting gig, with the crowd deciding who wins! Time to send her packing!</p>
+        <p>What the--? It looks like Fish Lips is here! And that witch has convinced the club manager to let her lip sync against you for the hosting gig, 
+        with the crowd deciding who wins! Time to send her packing!</p>
         `
         let finalBattleButton = document.createElement('button')
         finalBattleButton.innerText = "Lip sync for the gig!"
@@ -213,6 +182,7 @@ function showScenario(event) {
     })
   }
 
+// Cycles through the scenario content.
   let scenario = allScenarios[i];
 
   let scenarioTitle = document.createElement('h2')
@@ -235,17 +205,18 @@ function showScenario(event) {
   })
 }
   
-// This function determines which outfit the player has achieved and displays it
-// based on the first three items in the dragArray
+// This function determines which outfit the player has achieved and displays the corresponding image
+// based on the first three items in the dragArray.
 function showFinalOutfit(event) {
   let imageName = getFinalImageName(dragArray[0].split(' ')[0], dragArray[1].split(' ')[0], dragArray[2].split(' ')[0])
 
   let fullImageSource = imagesLocation + imageName;
 
-  let resultImage = document.createElement('img')
+  resultImage = document.createElement('img')
   resultImage.src = fullImageSource
 
   playerImageArea.appendChild(resultImage)
+
 }
 
 function getFinalImageName(wigType, shoesType, outfitType) {
@@ -256,3 +227,42 @@ function getFinalImageName(wigType, shoesType, outfitType) {
   let imageName = `${wigType}-${shoesType}-${outfitType}.png`
   return imageName
 }
+
+// This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
+// (the min and max scores the player can receive) and compares it to the player's final score.
+// If the player's score is equal or higher, the player wins and the corresponding message is shown. 
+let rivalScore = 0;
+
+function finalResult(event) {
+  // scenarioContainerA.innerHTML = ""
+  // scenarioContainerB.innerHTML = ""
+  playerImageArea.removeChild(playerImageArea.firstElementChild);
+  villainImageArea.removeChild(villainImageArea.firstElementChild);
+  rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
+
+  if (rivalScore <= playerScore) {
+    
+    scenarioContainerB.innerHTML = `
+    <p>Congratulations, ${userDragName}! 
+    You slayed the lip sync and the crowd has voted you the winner!
+    After all that, you get to host the show! Time to let your star shine bright!
+    </p>
+    `
+  } else {
+    let fishLipsDrag = document.createElement('img')
+    fishLipsDrag.src = '/assets/images/fish-lips-drag.png'
+    scenarioContainerA.appendChild(fishLipsDrag)
+    scenarioContainerB.innerHTML = `
+    <p>Sorry, ${userDragName}. The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
+    Better luck next time!
+    </p>
+    `
+  }
+  
+  let playAgainButton = document.createElement('button')
+  playAgainButton.innerText = "Play again"
+  scenarioContainerB.appendChild(playAgainButton)
+  playAgainButton.addEventListener('click', () => {
+    location.reload()
+  })
+}  
