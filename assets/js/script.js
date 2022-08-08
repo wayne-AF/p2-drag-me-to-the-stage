@@ -106,15 +106,14 @@ function handleSubmit(event) {
   userDragName = nameArray.join(' '); 
   console.log(userDragName);
 
+  let playerImageBoy = document.createElement('img');
+  playerImageBoy.src = '/assets/images/player-image-boy.png';
+  playerImageArea.appendChild(playerImageBoy);
+  
   textAreaA.innerHTML = `
   <h2>It's gonna be a long night</h2>
   <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention and a healthy dose of delusion. You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!</p>
   `
-  
-  
-  let playerImageBoy = document.createElement('img');
-  playerImageBoy.src = '/assets/images/player-image-boy.png';
-  playerImageArea.appendChild(playerImageBoy);
 
   buttonA.innerHTML = `Sounds fun!`
   buttonA.addEventListener('click', rivalIntro);
