@@ -133,7 +133,7 @@ let allScenarios = [
    text:"You put out an SOS on social media for anyone willing to lend you an outfit. You don't have the best reputation for returning girls' things back in good condition but surely SOMEONE will lend you SOMETHING that isn't pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he's not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...", 
    button:"Examine the stolen clothes"},
   {title:"These hips gotta lie", 
-   text:"You're gonna need padding to fill out this outfit! You come across a suspicious-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
+   text:"You're gonna need padding to fill out this outfit! You come across a suspect-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
    button:"Slice and dice the couch cushions"},
   {title:"Beat that mug", 
    text:"There's not much time left before the show starts and you're getting desperate. The only store selling make up you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You supply liquor to the minors, get your shoplifted make up, and then you're in a cab on the way to the club!", 
