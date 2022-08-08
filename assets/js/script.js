@@ -9,6 +9,7 @@ const scenarioContainerA = document.getElementById('scenario-container-a');
 const scenarioContainerB = document.getElementById('scenario-container-b');
 const imagesLocation = '/assets/images/';
 let userDragName;
+let resultImage;
 
  /** The player's score, not visible to the player. */
  let playerScore = 0;
@@ -61,16 +62,20 @@ function getItem(event) {
   console.log(playerScore)
 };
 
-/** This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
- * (the min and max scores the player can receive) and compares it to the player's final score.
- * If the player's score is equal or higher, the player wins and the corresponding message is shown. 
- */
+// This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
+// (the min and max scores the player can receive) and compares it to the player's final score.
+// If the player's score is equal or higher, the player wins and the corresponding message is shown. 
 let rivalScore = 0;
-// document.getElementById('button-d').addEventListener('click', finalResult);
-function finalResult() {
+
+function finalResult(event) {
+  // scenarioContainerA.innerHTML = ""
+  // scenarioContainerB.innerHTML = ""
+  playerImageArea.removeChild(playerImageArea.firstElementChild);
+  villainImageArea.removeChild(villainImageArea.firstElementChild);
   rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
 
   if (rivalScore <= playerScore) {
+    scenarioContainerA.appendChild(resultImage)
     scenarioContainerB.innerHTML = `
     <p>Congratulations, ${userDragName}! 
     You slayed the lip sync and the crowd has voted you the winner!
@@ -78,6 +83,7 @@ function finalResult() {
     </p>
     `
   } else {
+    scenarioContainerA.appendChild(fishLipsDrag)
     scenarioContainerB.innerHTML = `
     <p>Sorry, ${userDragName}. 
     The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
@@ -88,8 +94,8 @@ function finalResult() {
   console.log(rivalScore);
 }  
 
-/* help to fix input error value retrieved from https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null */
-/** Convert text entered into title case and displays the welcome text. */
+// help to fix input error value retrieved from https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null
+// Convert text entered into title case and displays the welcome text.
 function handleSubmit(event) {
   event.preventDefault();
   playerImageArea.innerHTML = ""
@@ -181,6 +187,30 @@ function showScenario(event) {
     finalOutfitButton.innerText = "Check yourself in the mirror backstage"
     scenarioContainerA.appendChild(finalOutfitButton)
     finalOutfitButton.addEventListener('click', showFinalOutfit)
+    finalOutfitButton.addEventListener('click', () => {
+      scenarioContainerA.innerHTML = `
+      <p>Well, you've looked worse! And you can hear the club is pretty full. Time to make them all know your name!</p>
+      `
+      finalOutfitButton.style.display = "none"
+      
+      let startShowButton = document.createElement('button')
+      startShowButton.innerText = "Start the show"
+      scenarioContainerA.appendChild(startShowButton)
+      startShowButton.addEventListener('click', () => {
+        startShowButton.style.display = "none"
+        
+        const fishLipsDrag = document.createElement('img');
+        fishLipsDrag.src = '/assets/images/fish-lips-drag.png';
+        villainImageArea.appendChild(fishLipsDrag);
+        scenarioContainerB.innerHTML = `
+        <p>What the--? It looks like Fish Lips is here! And that witch has convinced the club manager to let her lip sync against you for the hosting gig, with the crowd deciding who wins! Time to send her packing!</p>
+        `
+        let finalBattleButton = document.createElement('button')
+        finalBattleButton.innerText = "Lip sync for the gig!"
+        scenarioContainerB.appendChild(finalBattleButton)
+        finalBattleButton.addEventListener('click', finalResult)
+      })
+    })
   }
 
   let scenario = allScenarios[i];
@@ -205,7 +235,8 @@ function showScenario(event) {
   })
 }
   
-/** This function determines which outfit the player has achieved and displays it */
+// This function determines which outfit the player has achieved and displays it
+// based on the first three items in the dragArray
 function showFinalOutfit(event) {
   let imageName = getFinalImageName(dragArray[0].split(' ')[0], dragArray[1].split(' ')[0], dragArray[2].split(' ')[0])
 
@@ -222,6 +253,6 @@ function getFinalImageName(wigType, shoesType, outfitType) {
 // wigType-shoesType-outfitType.jpg
 // e.g. great-great-great.jpg is the final image for a combination of 
 // a great wig, great shoes, and great outfit.
-  let imageName = `${wigType}-${shoesType}-${outfitType}.jpg`
+  let imageName = `${wigType}-${shoesType}-${outfitType}.png`
   return imageName
 }
