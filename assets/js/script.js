@@ -131,7 +131,7 @@ function rivalIntro(event) {
   let fishLipsBoy = document.createElement('img');
   fishLipsBoy.src = '/assets/images/fish-lips-boy.png';
   villainImageArea.appendChild(fishLipsBoy);
-  
+
   let playButton = document.createElement('button')
   playButton.innerHTML = "Let's play!"
   scenarioContainerB.appendChild(playButton)
@@ -205,6 +205,10 @@ function showScenario(event) {
 }
   
 /** This function determines which outfit the player has achieved and displays it */
-function finalOutfit() {
+function showFinalOutfit() {
+  if (dragArray.includes("great wig", "great outfit", "great shoes")) {
+    let finalOutfit = document.createElement('img');
+    finalOutfit.src = '/assets/images/aaa-outfit.png';
+  }
 
 }
