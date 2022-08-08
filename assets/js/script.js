@@ -91,6 +91,7 @@ function finalResult() {
 /** Convert text entered into title case and displays the welcome text. */
 function handleSubmit(event) {
   event.preventDefault();
+  playerImageArea.innerHTML = ""
 
   let input = document.getElementById('name-input');
   let nameInput = "";
