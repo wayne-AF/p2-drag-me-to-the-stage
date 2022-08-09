@@ -63,9 +63,18 @@ h2 {
   border-radius: 5px;
 }
 
+#error-message {
+  display: none;
+}
+
+.visible {
+  display: block !important;
+}
+
 #main-container {
   max-width: 100%;
 }
+
 
 #player-image {
   width: 20%;
