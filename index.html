@@ -18,10 +18,13 @@
       <div id="text-and-button-container">
         <div id="scenario-container-a">
           <div id="text-area-a" class="text-area">
-          <label for="name-input"><h2>Choose your drag name:</h2></label>
-          <input id="name-input" type="text" required>
+          
+            <form action="javascript:void(0);">
+              <label for="name-input"><h2>Choose your drag name:</h2></label>
+              <input type="text" id="name-input" name="name" required>
+              <input id="name-form" class="button" type="submit" value="Submit">
+            </form>
           </div>
-          <button class="button" id="button-a" type="submit">Submit</button>
         </div>
         <div id="scenario-container-b">
           <div id="text-area-b" class="text-area">
@@ -33,3 +36,6 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
+
+
+<!-- onKeyPress="if (event.which == 13) return false;" -->

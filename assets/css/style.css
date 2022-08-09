@@ -97,7 +97,7 @@ h2 {
   margin-bottom: 0.5em;
 }
 
-button {
+button, .button {
   font-family: 'Raleway', sans-serif;
   font-size: 1.5rem;
   color: #5b71b0;
@@ -110,7 +110,7 @@ button {
   margin-right: auto;
 }
 
-button:hover {
+button:hover, .button:hover {
   background-color: #f3f967;
 }
 

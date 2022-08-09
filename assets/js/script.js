@@ -1,11 +1,7 @@
-const textAreaA = document.getElementById('text-area-a');
-const textAreaB = document.getElementById('text-area-b');
-const buttonA = document.getElementById('button-a');
-const buttonB = document.getElementById('button-b');
-const playerImageArea = document.getElementById('player-image');
-const villainImageArea = document.getElementById('villain-image');
 const scenarioContainerA = document.getElementById('scenario-container-a');
 const scenarioContainerB = document.getElementById('scenario-container-b');
+const playerImageArea = document.getElementById('player-image');
+const villainImageArea = document.getElementById('villain-image');
 const imagesLocation = '/assets/images/';
 
 // This array contains the entire range of possible items the player can receive, 
@@ -20,7 +16,7 @@ const entireOutfitArray = [
 ];
 
 // Contains content for scenarios.
-let allScenarios = [
+const allScenarios = [
   {title:"I need a wig", 
    text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
    button:"Look under the bed"},
@@ -48,7 +44,8 @@ let playerScore = 0;
 let dragArray = [];
 
 // Attach event listener to submit button.
-document.getElementById('button-a').addEventListener('click', handleSubmit);
+document.getElementById('name-form').addEventListener('click', handleSubmit);
+document.getElementById('name-form').addEventListener('submit', handleSubmit);
 
 // Converts text entered into title case and displays the welcome text.
 function handleSubmit(event) {
@@ -73,22 +70,24 @@ function handleSubmit(event) {
   playerImageBoy.src = '/assets/images/player-image-boy.png';
   playerImageArea.appendChild(playerImageBoy);
   
-  textAreaA.innerHTML = `
+  scenarioContainerA.innerHTML = `
   <h2>It's gonna be a long night</h2>
   <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention and a healthy dose of delusion. 
   You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! 
   With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!</p>
   `
 
-  buttonA.innerHTML = `Sounds fun!`
-  buttonA.addEventListener('click', rivalIntro);
-  buttonA.addEventListener('click', () => {
-    buttonA.style.display = "none"
+  let soundsFunButton = document.createElement('button')
+  soundsFunButton.innerHTML = `Sounds fun!`
+  scenarioContainerA.appendChild(soundsFunButton)
+  soundsFunButton.addEventListener('click', rivalIntro);
+  soundsFunButton.addEventListener('click', () => {
+    soundsFunButton.style.display = "none"
   })
 }
 
 function rivalIntro(event) {
-  textAreaB.innerHTML = `
+  scenarioContainerB.innerHTML = `
   <p>But watch out: your rival, Fish Lips, is also in town and she's out to snatch your gig! Try to put together the best look possible so that you can own the stage like the diva you are!</p>
   `
   
@@ -203,7 +202,6 @@ function showScenario(event) {
     getItem();
 
     getItemButton.style.display = "none"
-
   })
 }
   
@@ -245,8 +243,8 @@ function finalResult(event) {
   if (rivalScore <= playerScore) {
     
     scenarioContainerB.innerHTML = `
-    <p>Congratulations, ${userDragName}! 
-    You slayed the lip sync and the crowd has voted you the winner!
+    <h2>Congratulations, ${userDragName}!</h2>
+    <p>You slayed the lip sync and the crowd has voted you the winner!
     After all that, you get to host the show! Time to let your star shine bright!
     </p>
     `
@@ -255,7 +253,8 @@ function finalResult(event) {
     fishLipsDrag.src = '/assets/images/fish-lips-drag.png'
     scenarioContainerA.appendChild(fishLipsDrag)
     scenarioContainerB.innerHTML = `
-    <p>Sorry, ${userDragName}. The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
+    <h2>Sorry, ${userDragName}</h2>
+    <p>The crowd has voted Fish Lips the winner and this means she gets your hosting gig.
     Better luck next time!
     </p>
     `
