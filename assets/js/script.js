@@ -18,19 +18,40 @@ const entireOutfitArray = [
 // Contains content for scenarios.
 const allScenarios = [
   {title:'I need a wig', 
-   text:'Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she\'s out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can\'t take constructive criticism... Desperately, you search the almost empty room...', 
+   text:'Your drag mom calls in a favour from her drag sis, who says you can borrow ' + 
+   'whatever you need from her apartment while she\'s out of town. Unfortunately, one ' + 
+   'of her drag daughters is plucked over some comments you made on her Instagram and ' +  
+   'has cleaned out the place! Some queens just can\'t take constructive criticism... ' + 
+   'Desperately, you search the almost empty room...', 
    button:'Look under the bed'},
   {title:'Dumpster Diva', 
-   text:'Wig in hand, you pass by a charity store with a donations bin outside. Checking to make sure no one\'s around to record you, you dive right in. You must be blessed and highly favoured becase you find an entire bag full of shoes! But will there be any in your size?', 
+   text:'Wig in hand, you pass by a charity store with a donations bin outside. ' + 
+   'Checking to make sure no one\'s around to record you, you dive right in. You ' + 
+   'must be blessed and highly favoured becase you find an entire bag full of shoes! ' + 
+   'But will there be any in your size?', 
    button:'Search the bag'},
   {title:'I need an outfit!', 
-   text:'You put out an SOS on social media for anyone willing to lend you an outfit. You don\'t have the best reputation for returning girls\' things back in good condition but surely SOMEONE will lend you SOMETHING that isn\'t pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he\'s not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...', 
+   text:'You put out an SOS on social media for anyone willing to lend you an outfit. ' + 
+   'You don\'t have the best reputation for returning girls\' things back in good ' + 
+   'condition but surely SOMEONE will lend you SOMETHING that isn\'t pure gutter! A fan ' + 
+   'reaches out and says you can have something from the sale rack in the store ' + 
+   'where he works. The entire section is hideous so when he\'s not looking, you ' + 
+   'snatch an armful of clothes from another rack and flee the store. In the park ' + 
+   'down the street, you stop to catch your breath...', 
    button:'Examine the stolen clothes'},
   {title:'These hips gotta lie', 
-   text:'You\'re gonna need padding to fill out this outfit! You come across a suspect-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.', 
+   text:'You\'re gonna need padding to fill out this outfit! You come across a ' + 
+   'suspect-smelling abandoned couch down a side alley. Using an electric carving ' + 
+   'knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube ' + 
+   'tutorial on how to carve your own hips pads.', 
    button:'Slice and dice the couch cushions'},
   {title:'Beat that mug', 
-   text:'There\'s not much time left before the show starts and you\'re getting desperate. The only store selling make up you can find has Fish Lips\' boyfriend as security and he won\'t let you in! Some teenage girls ask you to buy them booze and you agree if they\'ll shoplift you some make up. You supply liquor to the minors, get your shoplifted make up, and then you\'re in a cab on the way to the club!', 
+   text:'There\'s not much time left before the show starts and you\'re getting ' + 
+   'desperate. The only store selling make up you can find has Fish Lips\' boyfriend ' + 
+   'as security and he won\'t let you in! Some teenage girls ask you to buy them ' + 
+   'booze and you agree if they\'ll shoplift you some make up. You supply liquor ' + 
+   'to the minors, get your shoplifted make up, and then you\'re in a cab on the ' + 
+   'way to the club!', 
    button:'Examine the stolen make up'}
 ]
 
@@ -82,9 +103,12 @@ function handleSubmit(event) {
   
   scenarioContainerA.innerHTML = `
   <h2>It's gonna be a long night</h2>
-  <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable thirst for attention and a healthy dose of delusion. 
-  You're in a new city to host your first show which could help take your career to the next level but the airline has lost all your drag luggage! 
-  With only a few hours to go before the most important night of your career, you need to beg, borrow (and maybe steal) all the supplies you need!</p>
+  <p>You are ${userDragName}, an up-and-coming drag queen with an unquenchable ` + 
+  `thirst for attention and a healthy dose of delusion. You're in a new city to ` + 
+  `host your first show which could help take your career to the next level but ` + 
+  `the airline has lost all your drag luggage! With only a few hours to go before ` + 
+  `the most important night of your career, you need to beg, borrow (and maybe ` + 
+  `steal) all the supplies you need!</p>
   `
 
   let soundsFunButton = document.createElement('button')
@@ -99,7 +123,9 @@ function handleSubmit(event) {
 // Inserts the rival introduction text into scenarioContainerB.
 function rivalIntro(event) {
   scenarioContainerB.innerHTML = `
-  <p>But watch out: your rival, Fish Lips, is also in town and she's out to snatch your gig! Try to put together the best look possible so that you can own the stage like the diva you are!</p>
+  <p>But watch out: your rival, Fish Lips, is also in town and she's out to ` + 
+  `snatch your gig! Try to put together the best look possible so that you can ` + 
+  `own the stage like the diva you are!</p>
   `
   
   let fishLipsBoy = document.createElement('img');
@@ -157,7 +183,8 @@ function showScenario(event) {
     scenarioContainerA.innerHTML = ''
     scenarioContainerA.innerHTML = `
     <h2>The stage awaits</h2>
-    <p>You get changed in the cab (the driver was definitely watching so no tip for him) and arrive at the club ready to meet your destiny!</p>
+    <p>You get changed in the cab (the driver was definitely watching so no tip ` + 
+    `for him) and arrive at the club ready to meet your destiny!</p>
     `
     let finalOutfitButton = document.createElement('button')
     finalOutfitButton.innerText = 'Check yourself in the mirror backstage'
@@ -166,7 +193,8 @@ function showScenario(event) {
     finalOutfitButton.addEventListener('click', () => {
       scenarioContainerA.innerHTML = `
       <h2>Time to werk!</h2>
-      <p>Well, you've looked worse! And you can hear the club is pretty full. Time to make them all know your name!</p>
+      <p>Well, you've looked worse! And you can hear the club is pretty full. ` + 
+      `Time to make them all know your name!</p>
       `
       finalOutfitButton.style.display = 'none'
       
@@ -181,8 +209,9 @@ function showScenario(event) {
         fishLipsDrag.src = 'assets/images/fish-lips-drag.png';
         villainImageArea.appendChild(fishLipsDrag);
         scenarioContainerB.innerHTML = `
-        <p>What the--? It looks like Fish Lips is here! And that witch has convinced the club manager to let her lip sync against you for the hosting gig, 
-        with the crowd deciding who wins! Time to send her packing!</p>
+        <p>What the--? It looks like Fish Lips is here! And that witch has ` + 
+        `convinced the club manager to let her lip sync against you for the ` + 
+        `hosting gig, with the crowd deciding who wins! Time to send her packing!</p>
         `
         let finalBattleButton = document.createElement('button')
         finalBattleButton.innerText = 'Lip sync for the gig!'
