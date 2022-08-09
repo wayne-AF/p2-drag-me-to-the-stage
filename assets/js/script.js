@@ -73,7 +73,7 @@ document.getElementById('logo').addEventListener('click', () => {
   location.reload()
 });
 
-// Converts text entered into title case and displays the welcome text.
+/* Converts text entered into title case and displays the welcome text. */
 function handleSubmit(event) {
   event.preventDefault();
   playerImageArea.innerHTML = ''
@@ -99,6 +99,7 @@ function handleSubmit(event) {
 
   let playerImageBoy = document.createElement('img');
   playerImageBoy.src = 'assets/images/player-image-boy.png';
+  playerImageBoy.classList.add('image');
   playerImageArea.appendChild(playerImageBoy);
   
   scenarioContainerA.innerHTML = `
@@ -120,7 +121,7 @@ function handleSubmit(event) {
   })
 }
 
-// Inserts the rival introduction text into scenarioContainerB.
+/* Inserts the rival introduction text into scenarioContainerB. */
 function rivalIntro(event) {
   scenarioContainerB.innerHTML = `
   <p>But watch out: your rival, Fish Lips, is also in town and she's out to ` + 
@@ -130,6 +131,7 @@ function rivalIntro(event) {
   
   let fishLipsBoy = document.createElement('img');
   fishLipsBoy.src = 'assets/images/fish-lips-boy.png';
+  fishLipsBoy.classList.add('image');
   villainImageArea.appendChild(fishLipsBoy);
 
   let playButton = document.createElement('button')
@@ -143,9 +145,9 @@ function rivalIntro(event) {
   })
 }
 
-// This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
-// pushes that item into the dragArray, and displays a message to the player saying what they have received.
-// It also adds to the player's score, depending on which item they have received.
+/* This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
+/ pushes that item into the dragArray, and displays a message to the player saying what they have received.
+/ It also adds to the player's score, depending on which item they have received. */
 let i = 0;   
 function getItem(event) {  
   let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
@@ -207,6 +209,7 @@ function showScenario(event) {
         
         let fishLipsDrag = document.createElement('img');
         fishLipsDrag.src = 'assets/images/fish-lips-drag.png';
+        fishLipsDrag.classList.add('image');
         villainImageArea.appendChild(fishLipsDrag);
         scenarioContainerB.innerHTML = `
         <p>What the--? It looks like Fish Lips is here! And that witch has ` + 
@@ -221,7 +224,7 @@ function showScenario(event) {
     })
   }
 
-  // Cycles through the allScenarios array and inserts the content into the relevant fields.
+  /* Cycles through the allScenarios array and inserts the content into the relevant fields. */
   let scenario = allScenarios[i];
 
   let scenarioTitle = document.createElement('h2')
@@ -243,8 +246,8 @@ function showScenario(event) {
   })
 }
   
-// This function determines which outfit the player has achieved and displays the corresponding image
-// based on the first three items in the dragArray.
+/* Determines which outfit the player has achieved and displays the corresponding image
+/ based on the first three items in the dragArray. */
 function showFinalOutfit(event) {
   let imageName = getFinalImageName(dragArray[0].split(' ')[0], dragArray[1].split(' ')[0], dragArray[2].split(' ')[0])
 
@@ -252,6 +255,7 @@ function showFinalOutfit(event) {
 
   resultImage = document.createElement('img')
   resultImage.src = fullImageSource
+  resultImage.classList.add('image');
 
   playerImageArea.appendChild(resultImage)
 
@@ -266,14 +270,12 @@ function getFinalImageName(wigType, shoesType, outfitType) {
   return imageName
 }
 
-// This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
-// (the min and max scores the player can receive) and compares it to the player's final score.
-// If the player's score is equal or higher, the player wins and the corresponding message is shown. 
+/* This randomly calculates the rival character's final score, between a minimum of 5 and maximum of 15,
+/ (the min and max scores the player can receive) and compares it to the player's final score.
+/ If the player's score is equal or higher, the player wins and the corresponding message is shown. */
 let rivalScore = 0;
 
 function finalResult(event) {
-  // scenarioContainerA.innerHTML = ""
-  // scenarioContainerB.innerHTML = ""
   playerImageArea.removeChild(playerImageArea.firstElementChild);
   villainImageArea.removeChild(villainImageArea.firstElementChild);
   rivalScore = Math.floor(Math.random() * (15 - 5 + 1)) + 1;
