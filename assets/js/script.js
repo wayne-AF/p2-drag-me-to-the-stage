@@ -1,26 +1,17 @@
-let textAreaA = document.getElementById('text-area-a');
-let textAreaB = document.getElementById('text-area-b');
-let buttonA = document.getElementById('button-a');
-let buttonB = document.getElementById('button-b');
-let playerImageArea = document.getElementById('player-image');
-let villainImageArea = document.getElementById('villain-image');
+const textAreaA = document.getElementById('text-area-a');
+const textAreaB = document.getElementById('text-area-b');
+const buttonA = document.getElementById('button-a');
+const buttonB = document.getElementById('button-b');
+const playerImageArea = document.getElementById('player-image');
+const villainImageArea = document.getElementById('villain-image');
 const scenarioContainerA = document.getElementById('scenario-container-a');
 const scenarioContainerB = document.getElementById('scenario-container-b');
 const imagesLocation = '/assets/images/';
-let userDragName;
-let resultImage;
 
- // The player's score, not visible to the player, used to determine the final outcome.
- let playerScore = 0;
-
-// The items the player receives in each scenario get pushed into this array.
-let dragArray = [];
-
-// Attach event listener to submit button.
-document.getElementById('button-a').addEventListener('click', handleSubmit);
-
-// This array contains the entire range of possible items the player can receive, three possible items per scenario.
-let entireOutfitArray = [
+// This array contains the entire range of possible items the player can receive, 
+// three possible items per scenario. The first three items determine the final 
+// image the player will see.
+const entireOutfitArray = [
   ['great wig', 'ok wig', 'bad wig'],
   ['great shoes', 'ok shoes', 'bad shoes'],
   ['great outfit', 'ok outfit', 'bad outfit'],
@@ -28,7 +19,38 @@ let entireOutfitArray = [
   ['great make up', 'ok make up', 'bad make up']
 ];
 
-// Convert text entered into title case and displays the welcome text.
+// Contains content for scenarios.
+let allScenarios = [
+  {title:"I need a wig", 
+   text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
+   button:"Look under the bed"},
+  {title:"Dumpster Diva", 
+   text:"Wig in hand, you pass by a charity store with a donations bin outside. Checking to make sure no one's around to record you, you dive right in. You must be blessed and highly favoured becase you find an entire bag full of shoes! But will there by any in your size?", 
+   button:"Search the bag"},
+  {title:"I need an outfit!", 
+   text:"You put out an SOS on social media for anyone willing to lend you an outfit. You don't have the best reputation for returning girls' things back in good condition but surely SOMEONE will lend you SOMETHING that isn't pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he's not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...", 
+   button:"Examine the stolen clothes"},
+  {title:"These hips gotta lie", 
+   text:"You're gonna need padding to fill out this outfit! You come across a suspect-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
+   button:"Slice and dice the couch cushions"},
+  {title:"Beat that mug", 
+   text:"There's not much time left before the show starts and you're getting desperate. The only store selling make up you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You supply liquor to the minors, get your shoplifted make up, and then you're in a cab on the way to the club!", 
+   button:"Examine the stolen make up"}
+]
+
+let userDragName;
+let resultImage;
+
+// The player's score, not visible to the player, used to determine the final outcome.
+let playerScore = 0;
+
+// The items the player receives in each scenario get pushed into this array.
+let dragArray = [];
+
+// Attach event listener to submit button.
+document.getElementById('button-a').addEventListener('click', handleSubmit);
+
+// Converts text entered into title case and displays the welcome text.
 function handleSubmit(event) {
   event.preventDefault();
   playerImageArea.innerHTML = ""
@@ -87,7 +109,7 @@ function rivalIntro(event) {
 
 // This iterates through the entireOutfitArray, one string per button click, randomly chooses an item,
 // pushes that item into the dragArray, and displays a message to the player saying what they have received.
-// It also adds to the player score, depending on which item they have received.
+// It also adds to the player's score, depending on which item they have received.
 var i = 0;   
 function getItem(event) {  
   let item = entireOutfitArray[i][Math.floor(Math.random()*entireOutfitArray[i].length)]; 
@@ -104,9 +126,7 @@ function getItem(event) {
       playerScore += 1;
     }
     i++
-    // if (dragArray.length >= 5) {
-    //     i = 0;
-    // }
+    
   let nextScenarioButton = document.createElement('button')
   nextScenarioButton.innerText = "Next!"
   scenarioContainerB.appendChild(nextScenarioButton)
@@ -119,25 +139,6 @@ function getItem(event) {
   console.log(dragArray)
   console.log(playerScore)
 };
-
-// Contains content for scenarios.
-let allScenarios = [
-  {title:"I need a wig", 
-   text:"Your drag mom calls in a favour from her drag sis, who says you can borrow whatever you need from her apartment while she's out of town. Unfortunately, one of her drag daughters is plucked over some comments you made on her Instagram and has cleaned out the place! Some queens just can't take constructive criticism... Desperately, you search the almost empty room...", 
-   button:"Look under the bed"},
-  {title:"Dumpster Diva", 
-   text:"Wig in hand, you pass by a charity store with a donations bin outside. Checking to make sure no one's around to record you, you dive right in. You must be blessed and highly favoured becase you find an entire bag full of shoes! But will there by any in your size?", 
-   button:"Search the bag"},
-  {title:"I need an outfit!", 
-   text:"You put out an SOS on social media for anyone willing to lend you an outfit. You don't have the best reputation for returning girls' things back in good condition but surely SOMEONE will lend you SOMETHING that isn't pure gutter! A fan reaches out and says you can have something from the sale rack in the store where he works. The entire section is hideous so when he's not looking, you snatch an armful of clothes from another rack and flee the store. In the park down the street, you stop to catch your breath...", 
-   button:"Examine the stolen clothes"},
-  {title:"These hips gotta lie", 
-   text:"You're gonna need padding to fill out this outfit! You come across a suspect-smelling abandoned couch down a side alley. Using an electric carving knife you borrowed from the kitchen of a nearby restaurant, you follow a YouTube tutorial on how to carve your own hips pads.", 
-   button:"Slice and dice the couch cushions"},
-  {title:"Beat that mug", 
-   text:"There's not much time left before the show starts and you're getting desperate. The only store selling make up you can find has Fish Lips' boyfriend as security and he won't let you in! Some teenage girls ask you to buy them booze and you agree if they'll shoplift you some make up. You supply liquor to the minors, get your shoplifted make up, and then you're in a cab on the way to the club!", 
-   button:"Examine the stolen make up"}
-]
 
 let nextScenarioIndex = 0;
 function showScenario(event) {
