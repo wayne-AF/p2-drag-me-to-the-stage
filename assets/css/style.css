@@ -75,7 +75,6 @@ h2 {
   max-width: 100%;
 }
 
-
 #player-image {
   width: 20%;
   float: left;
@@ -121,6 +120,11 @@ button, .button {
 
 button:hover, .button:hover {
   background-color: #f3f967;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
 }
 
 /* MEDIA QUERIES */
