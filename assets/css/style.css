@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Erica+One&family=Fascinate&family=Kenia&family=Oi&family=Permanent+Marker&family=Raleway:wght@200;300;400;500&family=Square+Peg&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Original+Surfer&family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Raleway:wght@300;400;500&family=Rock+Salt&display=swap");
 
 * {
     margin: 0;
@@ -27,6 +26,11 @@ body {
   font-size: 8rem;;
   color: #f596f6;
   text-shadow: -2px 4px 8px #6c56a4, 1px 1px 1px #6c56a4, 1px -1px 0 #6c56a4, -1px -1px 0 #6c56a4, 5px 8px #6c56a4;
+}
+
+#logo:hover {
+  color: #f3f967;
+  cursor: pointer;
 }
 
 p {
@@ -66,19 +70,15 @@ h2 {
 #player-image {
   width: 20%;
   float: left;
-  /* border: 2px solid; */
   border-left: 3em;
   text-align: right;
-  /* display: inline-block; */
 }
 
 #villain-image {
   width: 20%;
   float: right;
-  /* border: 2px solid; */
   margin-right: 3em;
   text-align: left;
-  /* display: inline-block; */
 }
 
 #text-and-button-container {
