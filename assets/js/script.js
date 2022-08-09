@@ -165,7 +165,7 @@ function getItem(event) {
     }
     i++
     if (dragArray.length >= 5) {
-      i = 0;
+      scenarioContainerB.innerHTML = ''
     }
   let nextScenarioButton = document.createElement('button')
   nextScenarioButton.innerText = 'Next!'
