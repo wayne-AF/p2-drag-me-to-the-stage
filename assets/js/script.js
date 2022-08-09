@@ -1,4 +1,3 @@
-// let image = document.getElementById('image');
 let textAreaA = document.getElementById('text-area-a');
 let textAreaB = document.getElementById('text-area-b');
 let buttonA = document.getElementById('button-a');
@@ -157,6 +156,7 @@ function showScenario(event) {
     finalOutfitButton.addEventListener('click', showFinalOutfit)
     finalOutfitButton.addEventListener('click', () => {
       scenarioContainerA.innerHTML = `
+      <h2>Time to werk!</h2>
       <p>Well, you've looked worse! And you can hear the club is pretty full. Time to make them all know your name!</p>
       `
       finalOutfitButton.style.display = "none"
@@ -165,6 +165,7 @@ function showScenario(event) {
       startShowButton.innerText = "Start the show"
       scenarioContainerA.appendChild(startShowButton)
       startShowButton.addEventListener('click', () => {
+        scenarioContainerA.innerHTML = ""
         startShowButton.style.display = "none"
         
         let fishLipsDrag = document.createElement('img');
