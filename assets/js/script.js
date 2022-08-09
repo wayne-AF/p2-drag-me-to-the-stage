@@ -47,6 +47,11 @@ let dragArray = [];
 document.getElementById('name-form').addEventListener('click', handleSubmit);
 document.getElementById('name-form').addEventListener('submit', handleSubmit);
 
+// Add reload/replay function to the logo.
+document.getElementById("logo").addEventListener('click', () => {
+  location.reload()
+})
+
 // Converts text entered into title case and displays the welcome text.
 function handleSubmit(event) {
   event.preventDefault();
@@ -266,4 +271,5 @@ function finalResult(event) {
   playAgainButton.addEventListener('click', () => {
     location.reload()
   })
-}  
+}
+
