@@ -164,9 +164,9 @@ function getItem(event) {
       playerScore += 1;
     }
     i++
-    if (dragArray.length >= 5) {
-      scenarioContainerB.innerHTML = ''
-    }
+    // if (dragArray.length >= 5) {
+    //   scenarioContainerB.innerHTML = ''
+    // }
   let nextScenarioButton = document.createElement('button')
   nextScenarioButton.innerText = 'Next!'
   scenarioContainerB.appendChild(nextScenarioButton)
@@ -176,7 +176,7 @@ function getItem(event) {
     nextScenarioIndex += 1
     showScenario(nextScenarioIndex)
   })
-};
+}
 
 let nextScenarioIndex = 0;
 function showScenario(event) {
