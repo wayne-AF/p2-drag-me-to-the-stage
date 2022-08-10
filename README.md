@@ -1,108 +1,157 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/responsive%20screens.png# Drag me to the stage browser game
 
-Welcome wayne-AF,
+## About
+The art form of drag has become much more prevalent in the public consciousness in the last decade thanks to shows like RuPaul's Drag Race. Drag is inherently transgressive and political but also often irreverent and silly. I've created a simple game that leans into the sillier side of drag using bright colours, outlandish scenarios, and 27 possible final outfit combinations so that repeat players will see something new each time they play. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of Contents
+1. [User Experience]
+	+ [User Stories]
+	+ [Design]
+	+ [Wireframes]
+2. [Features]
+	+ [Future features]
+3. [Resources]
+4. [Testing]
+	+ [Validation]
+	+ [Functionality]
+	+ [Performance]
+	+ [Browser compatibility]
+	+ [OS compatibility]
+	
+	+ [Testing user stories]
+5. [Deployment]
+## User Experience
+### User Stories
+Due to the simple and straightforward nature of the game, user stories are fairly minimal.
 
-## Gitpod Reminders
+#### User goals:
+- To play a simple, colourful drag-themed game.
+- To play a browser-based game that I can access easily using a web browser and does not require any typical video game skills or knowledge. 
+- To play a game that does not feature any sort of score-keeping. 
+- To play a game that I can potentially replay a number of times with different outcomes. 
+- To play a game with a simple narrative.
+- To play a short game that does not require much attention while I am doing other things. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### Design
+The game layout is uncluttered and simple. It all takes place on the same page, with elements removed and inserted using JavaScript. The bulk of the game is reading through the scenarios and clicking the button to receive an item related to each scenario, and then progressing to the following scenario. I wanted the interface to be as simple as possible.  
 
-`python3 -m http.server`
+#### Colours
+I knew that the logo and the art assets would be bright and largely rendered in pinks and purples. I made the background a greenish-blue for contrast, and gave it a gradient for some depth.
 
-A blue button should appear to click: _Make Public_,
+The button and logo hover effects are rendered in yellow, which contrasts pleasantly with the purple and pink text. All are bright, cheerful colours in to match the cheerful upbeat tone of the game.
 
-Another blue button should appear to click: _Open Browser_.
+#### Layout
+On larger screens, the character images appear to either side of the main text. On smaller screens, they appear above the text. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+#### Fonts
+For the main logo, I chose Fascinate from Google Fonts, a round and playful display text. 
 
-A blue button should appear to click: _Make Public_,
+For the h2, I chose Rock Salt from Google Fonts, a cursive text with a handwritten, almost frantic quality, alluding to the frantic content of the game's scenarios (i.e. rushing around to put together a drag outfit in time for the show).
 
-Another blue button should appear to click: _Open Browser_.
+For the main body text, I used Raleway from Google Fonts, a clean and readable font which also has a sense of roundness to it. Since it can sometimes contain multiple lines of text, I decided to stick with this text even though it is a little plain because it is easy to read. 
+ 
+#### Imagery
+All images used in the project were created by me. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+I designed the characters in a playful, cartoonish style, and used bright colours that would pop against the background. In this version of the project, there are 27 possible outfits the player can achieve, from a combination of three types each of wigs, outfits, and shoes. My original idea was to include three types of make-up and padding (which are still items the player can achieve in the game and which still contribute to the final score). However, this would have raised the potential number of possible outfits to 243, which is far beyond the scope of this project. 
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+#### Wireframes
 
-## Release History
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Future Features
+ 
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Resources
+- [Am I Responsive](https://ui.dev/amiresponsive) - Used to test responsiveness across different-sized viewports
+- [Balsamiq](balsamiq.cloud) - Used for wireframe creation
+- [CSS Gradient](https://cssgradient.io/) - Used for creating the background image
+- [Google fonts](https://fonts.google.com/) - Used to choose and import fonts
+- [Infinite Painter](https://www.infinitestudio.art/discover.php) - Used for asset creation
+- [JS Hint](https://jshint.com/) - Used to validate JavaScript
+- [Pic Resize](https://picresize.com/) - Used for image resizing
+- [StackEdit](https://stackedit.io/) - Used for markdown editing
+- [W3C](https://validator.w3.org/) - Used for code validation  
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Testing
+### Validation
+- HTML validation 
+	+ I used W3C for HTML validation. It threw up a warning concerning having a h2 inside a form label. I amended this by giving the label a CSS class in order to style it as required. 
+- CSS validation
+	+ I used W3C for CSS validation. The only warning I received was regarding Google Fonts.
+- JS validation
+	+ I used JS Hint for JavaScript validation. Discounting ES6 version and missing semicolon, no issues were detected.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Functionality
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Performance
+Chrome developer tools Lighthouse performance results:
+- index.html performance result:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Browser compatibility
+(Tested using MacOS Monterey Version 12.4)
+- Chrome Version 103.0.5060.53: Website performed as expected. 
+- Firefox Version 101.0.1: Website performed as expected. 
+- Safari Version 15.5 (17613.2.7.1.8): Website performed as expected. 
+### OS compatibility
+- Android 11 Oxygen 11.1.2.2 (Chrome 102.0.5005.125 & Firefox 101.2.0): Website performed as expected. 
+- iPhone13 iOS 15.4.1 (Safari version 15.4): Website performed as expected. 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Issues
+### Testing user stories
+- _I am a user who_ 
+	+ Answer. 
+	+ Answer. 
+	__Test result: SUCCESS__
+- _I am a user who ._
+	+ Answer
+	__Test result: SUCCESS__
+- _I am a user who_
+	+ Answer. 
+	__Test result: SUCCESS__
+- _I am a user who._
+	+ Answer
+	__Test result: SUCCESS__
+- _I am a user who..._
+	+ Answer
+	__Test result: SUCCESS__
+## Deployment
+To clone the website's repository to your local computer in order to edit code, add or remove files, and push larger commits, the following steps should be taken:
+1. Log into GitHub.
+2. Use the search facility or the _Recent Repositories_ list on the left of the screen to locate and select wayne-AF/p2-drag-me-to-the-stage.
+3. From the tabs below the menu list and above the file list, click _Code_.
+4. There are three methods of creating a clone:
+	+ Clone the repository using HTTPS
+	+ Clone the repository using an SSH key
+	+ Clone the repository using GitHub CLI.
+Choose the method and click the button to copy the link. 
+5. Open the terminal.
+6. Change the current working directory to the desired location for the cloned directory. 
+7. Type __git clone__, paste the copied URL, and press _enter_ to create the local clone. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+To edit the website's code and push it to the repository, the following steps should be taken:
+1. Log into GitHub.
+2. Use the search facility or the _Recent Repositories_ list on the left of the screen, to locate and select wayne-AF/p2-drag-me-to-the-stage. 
+3. From the tabs below the menu list and above the file list, click _Gitpod_.
+4. Sign into Gitpod if required. 
+5.  Make any desired changes to the code. 
+6. In the command line of the terminal, type __git add .__ and hit _enter_.
+7. On the next line, type __git commit -m "_enter your commit comment here_"__ and hit _enter_.
+8. On the next line, type __git push__ and hit _enter_.
+9. Your changes have been pushed to the repository and saved to the project.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+To deploy the website from its GitHub repository, the following steps should be taken: 
+1. Log into GitHub.
+2. Use the search facility or the _Recent Repositories_ list on the left of the screen, to locate and select wayne-AF/p2-drag-me-to-the-stage. 
+3. From the menu list below the repository name, select _Settings_.
+4. Select _Pages_ from the menu on the left. 
+5. Under _Source_, click the drop-down menu labelled _None_ and select _Master Branch_.
+6. The page will be refreshed and the website will be deployed with a link provided in the _GitHub Pages_ section. 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Acknowledgements
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
