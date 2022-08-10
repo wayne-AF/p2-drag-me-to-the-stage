@@ -8,9 +8,9 @@ The art form of drag has become much more prevalent in the public consciousness 
 
 ## Table of Contents
 1. [User Experience]
-	+ [User Stories]
-	+ [Design]
-	+ [Wireframes]
+	+ [User Stories](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#user-experience)
+	+ [Design](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#design)
+	+ [Wireframes](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#wireframes)
 2. [Features]
 	+ [Future features]
 3. [Resources]
