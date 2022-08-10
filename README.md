@@ -12,17 +12,17 @@ The art form of drag has become much more prevalent in the public consciousness 
 	+ [Design](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#design)
 	+ [Wireframes](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#wireframes)
 2. [Features]
-	+ [Future features]
-3. [Resources]
+	+ [Future features](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#future-features)
+3. [Resources](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#resources)
 4. [Testing]
-	+ [Validation]
-	+ [Functionality]
-	+ [Performance]
-	+ [Browser compatibility]
-	+ [OS compatibility]
+	+ [Validation](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#validation)
+	+ [Functionality](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#functionality)
+	+ [Performance](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#performance)
+	+ [Browser compatibility](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#browser-compatibility)
+	+ [OS compatibility](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#os-compatibility)
 	
-	+ [Testing user stories]
-5. [Deployment]
+	+ [Testing user stories](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#testing-user-stories)
+5. [Deployment](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/README.md#deployment)
 ## User Experience
 ### User Stories
 Due to the simple and straightforward nature of the game, user stories are fairly minimal.
@@ -86,7 +86,7 @@ Features I did not have the time to implement but would like to include in a fut
 - [W3C](https://validator.w3.org/) - Used for code validation  
 
 ## Testing
-![testing chart](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/testing%20chart.png)
+
 ### Validation
 - HTML validation 
 	+ I used W3C for HTML validation. It threw up a warning concerning having a h2 inside a form label. I amended this by giving the label a CSS class in order to style it as required. 
@@ -99,6 +99,7 @@ Features I did not have the time to implement but would like to include in a fut
 	![JS validation](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/documentation/JavaScript%20validation.png?raw=true)
 
 ### Functionality
+![testing chart](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/testing%20chart.png)
 
 ### Performance
 Chrome developer tools Lighthouse performance results:
@@ -115,6 +116,8 @@ Chrome developer tools Lighthouse performance results:
 - iPhone13 iOS 15.4.1 (Safari version 15.6): Website performed as expected. 
 
 ### Issues
+When playing the game, after the player receives the final item, the console logs an error message. Various attempts were made to fix this issue but unfortunately, I was unable to do so before the submission deadline. However, this issue only appears in the console and does not affect the functioning of the game. 
+![console error message](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/documentation/console%20error%20message.png?raw=true)
 ### Testing user stories
 - _I am a user who has an interest in drag and enjoys simple video games on my phone. I'd like to play a low-stakes game that doesn't require much engagement._
 	+ This game is simple and is easy and intuitive to play. It does not require any skills and does not require a lot of time to play. 
