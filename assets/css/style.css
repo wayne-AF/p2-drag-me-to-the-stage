@@ -154,6 +154,12 @@ button:hover, .button:hover {
   }
 } 
 
+@media screen and (max-width: 600px) {
+  .line-break {
+    display:none;
+  }
+}
+
 @media screen and (max-width: 500px) {
   #logo {
     font-size: 5rem;
