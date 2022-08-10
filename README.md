@@ -1,4 +1,6 @@
-https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/responsive%20screens.png# Drag me to the stage browser game
+
+![responsive sites](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/responsive%20screens.png)
+# Drag me to the stage browser game
 
 ## About
 The art form of drag has become much more prevalent in the public consciousness in the last decade thanks to shows like RuPaul's Drag Race. Drag is inherently transgressive and political but also often irreverent and silly. I've created a simple game that leans into the sillier side of drag using bright colours, outlandish scenarios, and 27 possible final outfit combinations so that repeat players will see something new each time they play. 
@@ -60,13 +62,18 @@ I designed the characters in a playful, cartoonish style, and used bright colour
 
 
 #### Wireframes
-
-
+![wireframes 1](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/wireframes%201.png)
+![wireframes 2](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/wireframes%202.png)
+![wireframes 3](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/wireframes%203.png)
+![wireframes 3](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/wireframes%204.png)
+![wireframes 5](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/wireframes%205.png)
+![wireframes 6](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/wireframes%206.png)
 
 ## Future Features
- 
-
-
+Features I did not have the time to implement but would like to include in a future build include:
+	- The ability for the player to choose from several starting characters
+	- The inclusion of choices in each scenario which will influence the received item
+	- A longer narrative with more attention given to the villain and requiring more interaction from the player
 ## Resources
 - [Am I Responsive](https://ui.dev/amiresponsive) - Used to test responsiveness across different-sized viewports
 - [Balsamiq](balsamiq.cloud) - Used for wireframe creation
@@ -79,47 +86,49 @@ I designed the characters in a playful, cartoonish style, and used bright colour
 - [W3C](https://validator.w3.org/) - Used for code validation  
 
 ## Testing
+![testing chart](https://raw.githubusercontent.com/wayne-AF/p2-drag-me-to-the-stage/4aaa6026c249858bc1cb65ae7d12ffcf24746db1/documentation/testing%20chart.png)
 ### Validation
 - HTML validation 
 	+ I used W3C for HTML validation. It threw up a warning concerning having a h2 inside a form label. I amended this by giving the label a CSS class in order to style it as required. 
+	![HTML validation](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/documentation/HTML%20validation.png?raw=true)
 - CSS validation
 	+ I used W3C for CSS validation. The only warning I received was regarding Google Fonts.
+	![CSS validation](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/documentation/CSS%20validation.png?raw=true)
 - JS validation
 	+ I used JS Hint for JavaScript validation. Discounting ES6 version and missing semicolon, no issues were detected.
+	![JS validation](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/documentation/JavaScript%20validation.png?raw=true)
 
 ### Functionality
 
 ### Performance
 Chrome developer tools Lighthouse performance results:
 - index.html performance result:
+![Lighthouse performance](https://github.com/wayne-AF/p2-drag-me-to-the-stage/blob/main/documentation/Chome%20dev%20tools%20Lighthouse%20validation.png?raw=true)
 
 ### Browser compatibility
 (Tested using MacOS Monterey Version 12.4)
-- Chrome Version 103.0.5060.53: Website performed as expected. 
-- Firefox Version 101.0.1: Website performed as expected. 
-- Safari Version 15.5 (17613.2.7.1.8): Website performed as expected. 
+- Chrome Version Version 103.0.5060.134: Website performed as expected. 
+- Firefox Version 103.0.1: Website performed as expected. 
+- Safari Version 15.6 (17613.3.9.1.5): Website performed as expected. 
 ### OS compatibility
-- Android 11 Oxygen 11.1.2.2 (Chrome 102.0.5005.125 & Firefox 101.2.0): Website performed as expected. 
-- iPhone13 iOS 15.4.1 (Safari version 15.4): Website performed as expected. 
+- Android 11 Oxygen 11.1.2.2 (Chrome 103.0.5005.125 & Firefox 103.2.0): Website performed as expected. 
+- iPhone13 iOS 15.4.1 (Safari version 15.6): Website performed as expected. 
 
 ### Issues
 ### Testing user stories
-- _I am a user who_ 
-	+ Answer. 
-	+ Answer. 
+- _I am a user who has an interest in drag and enjoys simple video games on my phone. I'd like to play a low-stakes game that doesn't require much engagement._
+	+ This game is simple and is easy and intuitive to play. It does not require any skills and does not require a lot of time to play. 
 	__Test result: SUCCESS__
-- _I am a user who ._
-	+ Answer
+- _I am a user who uses public transport and so I spend a lot of time on my phone. I'd like to play a game that provides me with some quick and easy amusement while I am waiting for the bus._
+	+ The game is quick to play. I am able to exit the browser and when I return, I am able to resume the game.
 	__Test result: SUCCESS__
-- _I am a user who_
-	+ Answer. 
+- _I am a user who likes games that have multiple outcomes._
+	+ In this game, there are a number of different outfits I can achieve every time I play. Also, if the achieved outfit is not good enough, I can potentially lose the game. 
 	__Test result: SUCCESS__
-- _I am a user who._
-	+ Answer
+- _I am a user who prefers narrative-based games to games with no story._
+	+ This game has a central premise with a consistent narrative throughout. It tells a short, simple story in the space of a few minutes.
 	__Test result: SUCCESS__
-- _I am a user who..._
-	+ Answer
-	__Test result: SUCCESS__
+
 ## Deployment
 To clone the website's repository to your local computer in order to edit code, add or remove files, and push larger commits, the following steps should be taken:
 1. Log into GitHub.
@@ -154,4 +163,4 @@ To deploy the website from its GitHub repository, the following steps should be 
 6. The page will be refreshed and the website will be deployed with a link provided in the _GitHub Pages_ section. 
 
 ## Acknowledgements
-
+Many thanks to my mentor, Brian Macharia, for all his help!
